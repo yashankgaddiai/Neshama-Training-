@@ -25,7 +25,6 @@ const Modal = lazy(() => import('./components/Modals'));
 
 export default function App() {
   const [isEnrollModalOpen, setIsEnrollModalOpen] = useState(false);
-  const [isBrochureModalOpen, setIsBrochureModalOpen] = useState(false);
 
   // Eagerly load the form script to speed up first modal open
   useEffect(() => {
@@ -43,13 +42,12 @@ export default function App() {
   }, []);
 
   const openEnroll = () => setIsEnrollModalOpen(true);
-  const openBrochure = () => setIsBrochureModalOpen(true);
 
   return (
     <div className="min-h-screen bg-surface selection:bg-secondary selection:text-primary pb-24 sm:pb-20">
       <TopBanner onEnroll={openEnroll} />
       <main>
-        <Hero onEnroll={openEnroll} onDownloadBrochure={openBrochure} />
+        <Hero onEnroll={openEnroll} />
         <Suspense fallback={<div className="h-96 flex items-center justify-center text-outline">Loading...</div>}>
           <VideoSection />
           <Countdown />
@@ -71,13 +69,6 @@ export default function App() {
           isOpen={isEnrollModalOpen} 
           onClose={() => setIsEnrollModalOpen(false)} 
           title="Enrollment Form" 
-          type="enroll" 
-        />
-        <Modal 
-          isOpen={isBrochureModalOpen} 
-          onClose={() => setIsBrochureModalOpen(false)} 
-          title="Brochure Form" 
-          type="brochure" 
         />
       </Suspense>
     </div>
