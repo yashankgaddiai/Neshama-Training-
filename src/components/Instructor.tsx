@@ -1,4 +1,4 @@
-import { Star } from 'lucide-react';
+import { motion } from 'motion/react';
 
 export default function Instructor() {
   const teachers = [
@@ -15,34 +15,41 @@ export default function Instructor() {
   ];
 
   return (
-    <section className="py-32 px-8">
+    <motion.section 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="py-20 sm:py-32 px-4 sm:px-8"
+    >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <span className="text-primary font-bold uppercase text-[0.75rem] tracking-[0.2em] mb-4 block">
-            👨🏫 Your Teachers
+        <div className="text-center mb-12 sm:mb-20">
+          <span className="text-primary font-bold uppercase text-[0.7rem] sm:text-[0.75rem] tracking-[0.2em] mb-4 block">
+            👨‍🏫 Your Teachers
           </span>
-          <h2 className="text-4xl font-bold tracking-tight text-primary mb-6">Learn from IT professionals with 20+ years of experience</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-primary mb-6">Learn from IT professionals with 20+ years of experience</h2>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-8 sm:gap-12">
           {teachers.map((teacher, i) => (
-            <div key={i} className="flex flex-col md:flex-row gap-8 items-center p-8 rounded-3xl bg-surface-container-low border border-outline-variant/30">
-              <div className="w-32 h-32 rounded-2xl overflow-hidden shadow-xl flex-shrink-0">
+            <div key={i} className="flex flex-col md:flex-row gap-6 sm:gap-8 items-center p-6 sm:p-8 rounded-3xl bg-surface-container-low border border-outline-variant/30">
+              <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl overflow-hidden shadow-xl flex-shrink-0">
                 <img 
                   src={teacher.image} 
                   alt={teacher.role} 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </div>
-              <div>
-                <h3 className="text-2xl font-bold text-primary mb-2">{teacher.role}</h3>
-                <p className="text-on-surface-variant leading-relaxed">{teacher.expertise}</p>
+              <div className="text-center md:text-left">
+                <h3 className="text-xl sm:text-2xl font-bold text-primary mb-2">{teacher.role}</h3>
+                <p className="text-sm sm:text-base text-on-surface-variant leading-relaxed">{teacher.expertise}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

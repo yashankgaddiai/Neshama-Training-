@@ -1,6 +1,6 @@
-import { X } from 'lucide-react';
+import { X, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface ModalProps {
   isOpen: boolean;
@@ -10,13 +10,18 @@ interface ModalProps {
 }
 
 export default function Modal({ isOpen, onClose, title, type }: ModalProps) {
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    if (isOpen && !document.getElementById("ghl-form-script")) {
-      const script = document.createElement("script");
-      script.src = "https://link.msgsndr.com/js/form_embed.js";
-      script.async = true;
-      script.id = "ghl-form-script";
-      document.body.appendChild(script);
+    if (isOpen) {
+      setIsLoading(true);
+      if (!document.getElementById("ghl-form-script")) {
+        const script = document.createElement("script");
+        script.src = "https://link.msgsndr.com/js/form_embed.js";
+        script.async = true;
+        script.id = "ghl-form-script";
+        document.body.appendChild(script);
+      }
     }
   }, [isOpen]);
 
@@ -45,17 +50,24 @@ export default function Modal({ isOpen, onClose, title, type }: ModalProps) {
                 </button>
               </div>
               
-              <div className="w-full min-h-[400px] sm:min-h-[500px]">
+              <div className="w-full h-[550px] relative">
+                {isLoading && (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-white z-10">
+                    <Loader2 className="w-10 h-10 text-primary animate-spin mb-4" />
+                    <p className="text-sm font-medium text-outline">Loading secure form...</p>
+                  </div>
+                )}
                 <iframe
                   src="https://api.leadconnectorhq.com/widget/form/J4MWsZl7IrxrNbibFudJ"
                   style={{
                     width: "100%",
-                    height: "550px",
+                    height: "100%",
                     border: "none",
                     borderRadius: "12px",
                   }}
                   id="ghl-form-J4MWsZl7IrxrNbibFudJ"
                   title="AI Engineering — Neshama Training"
+                  onLoad={() => setIsLoading(false)}
                 />
               </div>
             </div>

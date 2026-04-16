@@ -24,8 +24,30 @@ export default function Tools() {
     { name: "Jira", logo: "https://cdn.worldvectorlogo.com/logos/jira-1.svg" },
   ];
 
-  // Duplicate the tools for seamless looping
-  const duplicatedTools = [...tools, ...tools, ...tools];
+  // Split tools into two rows for a more dynamic animation
+  const row1 = tools.slice(0, 10);
+  const row2 = tools.slice(10);
+
+  const ToolCard = ({ tool }: { tool: typeof tools[0] }) => (
+    <motion.div 
+      whileHover={{ y: -5, scale: 1.05 }}
+      className="flex items-center gap-3 px-6 py-4 bg-white rounded-2xl shadow-soft border border-outline-variant/30 hover:border-primary/50 transition-all duration-300 group cursor-default flex-shrink-0"
+    >
+      <div className="w-8 h-8 flex items-center justify-center overflow-hidden">
+        <img 
+          src={tool.logo} 
+          alt={tool.name} 
+          className="w-full h-full object-contain transition-all duration-300"
+          referrerPolicy="no-referrer"
+          loading="lazy"
+          onError={(e) => {
+            (e.target as HTMLImageElement).style.display = 'none';
+          }}
+        />
+      </div>
+      <span className="font-bold text-primary">{tool.name}</span>
+    </motion.div>
+  );
 
   return (
     <section className="py-20 sm:py-32 px-4 sm:px-8 bg-surface-container-low overflow-hidden">
@@ -38,33 +60,44 @@ export default function Tools() {
         </div>
       </div>
 
-      <div className="relative flex overflow-hidden">
-        <motion.div 
-          className="flex gap-6 whitespace-nowrap"
-          animate={{ x: ["-50%", "0%"] }}
-          transition={{ 
-            duration: 40, 
-            repeat: Infinity, 
-            ease: "linear" 
-          }}
-        >
-          {duplicatedTools.map((tool, i) => (
-            <div key={i} className="flex items-center gap-3 px-6 py-4 bg-white rounded-2xl shadow-soft border border-outline-variant/30 hover:border-primary/50 transition-all duration-300 group cursor-default flex-shrink-0">
-              <div className="w-8 h-8 flex items-center justify-center overflow-hidden">
-                <img 
-                  src={tool.logo} 
-                  alt={tool.name} 
-                  className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                  referrerPolicy="no-referrer"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = 'none';
-                  }}
-                />
+      <div className="space-y-8">
+        {/* Row 1: Moving Left */}
+        <div className="relative flex overflow-hidden">
+          <motion.div 
+            className="flex gap-6 whitespace-nowrap"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ 
+              duration: 30, 
+              repeat: Infinity, 
+              ease: "linear" 
+            }}
+          >
+            {[...row1, ...row1, ...row1, ...row1].map((tool, i) => (
+              <div key={`row1-${i}`}>
+                <ToolCard tool={tool} />
               </div>
-              <span className="font-bold text-primary">{tool.name}</span>
-            </div>
-          ))}
-        </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Row 2: Moving Right */}
+        <div className="relative flex overflow-hidden">
+          <motion.div 
+            className="flex gap-6 whitespace-nowrap"
+            animate={{ x: ["-50%", "0%"] }}
+            transition={{ 
+              duration: 35, 
+              repeat: Infinity, 
+              ease: "linear" 
+            }}
+          >
+            {[...row2, ...row2, ...row2, ...row2].map((tool, i) => (
+              <div key={`row2-${i}`}>
+                <ToolCard tool={tool} />
+              </div>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   );

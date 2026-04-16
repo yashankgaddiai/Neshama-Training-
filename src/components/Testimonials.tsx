@@ -40,6 +40,7 @@ export default function Testimonials() {
                   alt={testimonial.name} 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </div>
               <div className="flex text-secondary mb-4">
