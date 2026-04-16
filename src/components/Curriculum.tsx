@@ -257,6 +257,27 @@ export default function Curriculum() {
             </div>
           ))}
         </div>
+
+        {/* Brochure Download CTA */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="mt-20 sm:mt-32 p-8 sm:p-12 rounded-[2rem] bg-surface-container-low border border-outline-variant/30 text-center max-w-4xl mx-auto"
+        >
+          <div className="mb-8">
+            <h3 className="text-2xl sm:text-3xl font-bold text-primary mb-4">Want the Full 8-Week Roadmap?</h3>
+            <p className="text-on-surface-variant text-sm sm:text-base">Download the detailed curriculum brochure and share it with your team or sponsors.</p>
+          </div>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => window.open("https://drive.google.com/uc?export=view&id=1u2bwNXjPORDy1XJcWH07nEoGmvp-8I88", "_blank")}
+            className="inline-flex items-center gap-2 bg-primary text-white px-10 py-5 rounded-full font-bold text-lg hover:shadow-2xl transition-all"
+          >
+            📂 Download Full Curriculum PDF
+          </motion.button>
+        </motion.div>
       </div>
     </section>
   );

@@ -42,12 +42,18 @@ export default function App() {
   }, []);
 
   const openEnroll = () => setIsEnrollModalOpen(true);
+  const openBrochure = () => {
+    window.open(
+      "https://drive.google.com/uc?export=view&id=1u2bwNXjPORDy1XJcWH07nEoGmvp-8I88",
+      "_blank"
+    );
+  };
 
   return (
     <div className="min-h-screen bg-surface selection:bg-secondary selection:text-primary pb-24 sm:pb-20">
       <TopBanner onEnroll={openEnroll} />
       <main>
-        <Hero onEnroll={openEnroll} />
+        <Hero onEnroll={openEnroll} onDownloadBrochure={openBrochure} />
         <Suspense fallback={<div className="h-96 flex items-center justify-center text-outline">Loading...</div>}>
           <VideoSection />
           <Countdown />

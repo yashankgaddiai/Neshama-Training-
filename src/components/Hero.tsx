@@ -3,9 +3,10 @@ import { motion } from 'motion/react';
 
 interface HeroProps {
   onEnroll: () => void;
+  onDownloadBrochure: () => void;
 }
 
-export default function Hero({ onEnroll }: HeroProps) {
+export default function Hero({ onEnroll, onDownloadBrochure }: HeroProps) {
   return (
     <header className="pt-16 sm:pt-20 pb-20 sm:pb-24 px-4 sm:px-8 overflow-hidden bg-surface">
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
@@ -48,16 +49,14 @@ export default function Hero({ onEnroll }: HeroProps) {
             >
               Enroll Now — Reserve My Seat 
             </motion.button>
-            <motion.a 
+            <motion.button 
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              href="/brochure.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-outline/20 px-8 py-4 rounded-full font-bold text-lg text-primary hover:bg-surface-container-low transition-all flex items-center justify-center w-full sm:w-auto cursor-pointer"
+              onClick={onDownloadBrochure}
+              className="border border-outline/20 px-8 py-4 rounded-full font-bold text-lg text-primary hover:bg-surface-container-low transition-all flex items-center justify-center w-full sm:w-auto"
             >
               Download Free Brochure
-            </motion.a>
+            </motion.button>
           </div>
 
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-[10px] sm:text-xs font-bold text-outline uppercase tracking-wider">
