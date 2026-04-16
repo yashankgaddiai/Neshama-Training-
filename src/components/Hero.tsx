@@ -51,8 +51,9 @@ export default function Hero({ onEnroll }: HeroProps) {
             <motion.a 
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              href="/neshama training brochure.pdf"
-              download
+              href="/brochure.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="border border-outline/20 px-8 py-4 rounded-full font-bold text-lg text-primary hover:bg-surface-container-low transition-all flex items-center justify-center w-full sm:w-auto cursor-pointer"
             >
               Download Free Brochure
