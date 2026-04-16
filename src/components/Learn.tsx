@@ -41,7 +41,7 @@ export default function Learn() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="py-32 px-8"
+      className="py-16 sm:py-32 px-4 sm:px-8"
     >
       <div className="max-w-7xl mx-auto">
         <div className="mb-20">

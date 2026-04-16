@@ -8,7 +8,7 @@ export default function VideoSection() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="py-24 px-8 bg-surface-container-low"
+      className="py-16 sm:py-24 px-4 sm:px-8 bg-surface-container-low"
     >
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-primary mb-4">Watch: What You'll Build in 8 Weeks</h2>

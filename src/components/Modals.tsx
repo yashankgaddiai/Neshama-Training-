@@ -37,20 +37,20 @@ export default function Modal({ isOpen, onClose, title, type }: ModalProps) {
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden"
           >
-            <div className="p-8">
-              <div className="flex justify-between items-center mb-6">
-                <h3 className="text-2xl font-bold text-primary">{title}</h3>
+            <div className="p-4 sm:p-8">
+              <div className="flex justify-between items-center mb-4 sm:mb-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-primary">{title}</h3>
                 <button onClick={onClose} className="text-outline hover:text-primary transition-colors">
                   <X size={24} />
                 </button>
               </div>
               
-              <div className="w-full min-h-[500px]">
+              <div className="w-full min-h-[400px] sm:min-h-[500px]">
                 <iframe
                   src="https://api.leadconnectorhq.com/widget/form/J4MWsZl7IrxrNbibFudJ"
                   style={{
                     width: "100%",
-                    height: "600px",
+                    height: "550px",
                     border: "none",
                     borderRadius: "12px",
                   }}

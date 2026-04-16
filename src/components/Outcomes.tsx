@@ -17,7 +17,7 @@ export default function Outcomes() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="py-24 px-8 bg-primary text-white"
+      className="py-16 sm:py-24 px-4 sm:px-8 bg-primary text-white"
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">

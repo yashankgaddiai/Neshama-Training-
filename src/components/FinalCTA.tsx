@@ -8,7 +8,7 @@ export default function FinalCTA({ onEnroll }: { onEnroll: () => void }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="py-32 px-8 bg-surface"
+      className="py-16 sm:py-32 px-4 sm:px-8 bg-surface"
     >
       <div className="max-w-5xl mx-auto rounded-3xl bg-primary text-white p-12 md:p-20 text-center relative overflow-hidden shadow-2xl">
         <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] bg-cover"></div>

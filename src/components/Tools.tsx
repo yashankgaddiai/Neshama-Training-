@@ -28,7 +28,7 @@ export default function Tools() {
   const duplicatedTools = [...tools, ...tools, ...tools];
 
   return (
-    <section className="py-32 px-8 bg-surface-container-low overflow-hidden">
+    <section className="py-20 sm:py-32 px-4 sm:px-8 bg-surface-container-low overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <span className="text-primary font-bold uppercase text-[0.75rem] tracking-[0.2em] mb-4 block">

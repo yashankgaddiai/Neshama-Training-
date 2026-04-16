@@ -102,24 +102,24 @@ export default function Curriculum() {
   };
 
   return (
-    <section className="py-32 px-8" id="curriculum">
+    <section className="py-20 sm:py-32 px-4 sm:px-8" id="curriculum">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-20 text-center">
-          <span className="text-primary font-bold uppercase text-[0.75rem] tracking-[0.2em] mb-4 block">
+        <div className="mb-12 sm:mb-20 text-center">
+          <span className="text-primary font-bold uppercase text-[0.7rem] sm:text-[0.75rem] tracking-[0.2em] mb-4 block">
             🧩 Curriculum (5 Phases)
           </span>
-          <h2 className="text-4xl font-bold tracking-tight text-primary mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-primary mb-8 sm:mb-12">
             The 8-Week AI Engineering Roadmap
           </h2>
 
           {/* Progress Bar */}
-          <div className="max-w-4xl mx-auto mb-20">
-            <div className="flex justify-between mb-4 text-xs font-black uppercase tracking-widest text-primary">
+          <div className="max-w-4xl mx-auto mb-12 sm:mb-20">
+            <div className="flex justify-between mb-4 text-[10px] sm:text-xs font-black uppercase tracking-widest text-primary">
               <span>Week 1</span>
-              <span>Week 4</span>
+              <span className="hidden sm:inline">Week 4</span>
               <span>Week 8</span>
             </div>
-            <div className="h-4 bg-surface-container-low rounded-full overflow-hidden border border-outline-variant/30 p-1">
+            <div className="h-3 sm:h-4 bg-surface-container-low rounded-full overflow-hidden border border-outline-variant/30 p-0.5 sm:p-1">
               <motion.div 
                 initial={{ width: 0 }}
                 whileInView={{ width: '100%' }}
@@ -129,17 +129,17 @@ export default function Curriculum() {
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"></div>
               </motion.div>
             </div>
-            <div className="grid grid-cols-5 mt-4 gap-2">
+            <div className="grid grid-cols-5 mt-4 gap-1 sm:gap-2">
               {phases.map((phase, i) => (
                 <div key={i} className="text-center">
-                  <div className="text-[10px] font-bold text-outline uppercase">Phase {i + 1}</div>
+                  <div className="text-[8px] sm:text-[10px] font-bold text-outline uppercase">P{i + 1}</div>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-20 sm:mb-32">
           {phases.map((phase, i) => (
             <motion.div 
               key={i}
@@ -148,15 +148,15 @@ export default function Curriculum() {
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
               onClick={() => scrollToPhase(phase.id)}
-              className="p-8 rounded-2xl bg-surface-container-low border-l-8 border-primary hover:shadow-soft transition-all duration-300 cursor-pointer group"
+              className="p-6 sm:p-8 rounded-2xl bg-surface-container-low border-l-4 sm:border-l-8 border-primary hover:shadow-soft transition-all duration-300 cursor-pointer group"
             >
               <div className="flex justify-between items-start">
                 <div>
-                  <span className="text-primary font-black text-sm uppercase mb-2 block">{phase.title}</span>
-                  <h3 className="text-xl font-bold mb-4 text-primary">{phase.subtitle}</h3>
-                  <p className="text-on-surface-variant text-sm leading-relaxed mb-4">{phase.description}</p>
-                  <span className="text-primary font-bold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                    View Details <ChevronRight size={16} />
+                  <span className="text-primary font-black text-xs sm:text-sm uppercase mb-2 block">{phase.title}</span>
+                  <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-primary">{phase.subtitle}</h3>
+                  <p className="text-on-surface-variant text-xs sm:text-sm leading-relaxed mb-4">{phase.description}</p>
+                  <span className="text-primary font-bold text-xs sm:text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                    View Details <ChevronRight size={14} />
                   </span>
                 </div>
               </div>
@@ -165,29 +165,29 @@ export default function Curriculum() {
         </div>
 
         {/* Detailed Breakdown Section */}
-        <div className="space-y-32">
+        <div className="space-y-20 sm:space-y-32">
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-primary mb-4">Detailed Phase Breakdown</h2>
-            <p className="text-on-surface-variant">5 phases. Step by step. Zero fluff.</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">Detailed Phase Breakdown</h2>
+            <p className="text-sm sm:text-base text-on-surface-variant">5 phases. Step by step. Zero fluff.</p>
           </div>
           
           {phases.map((phase, i) => (
-            <div key={i} id={phase.id} className="scroll-mt-32">
-              <div className="grid lg:grid-cols-3 gap-12 items-start">
+            <div key={i} id={phase.id} className="scroll-mt-24 sm:scroll-mt-32">
+              <div className="grid lg:grid-cols-3 gap-8 sm:gap-12 items-start">
                 <div className="lg:col-span-1">
-                  <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-black text-xl mb-6">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary text-white flex items-center justify-center font-black text-lg sm:text-xl mb-4 sm:mb-6">
                     {i + 1}
                   </div>
-                  <span className="text-primary font-black text-sm uppercase mb-2 block">{phase.title} — {phase.subtitle}</span>
-                  <h3 className="text-3xl font-bold text-primary mb-4">{phase.headline}</h3>
-                  <p className="text-on-surface-variant mb-8">{phase.description}</p>
+                  <span className="text-primary font-black text-xs sm:text-sm uppercase mb-2 block">{phase.title} — {phase.subtitle}</span>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-primary mb-4">{phase.headline}</h3>
+                  <p className="text-sm sm:text-base text-on-surface-variant mb-6 sm:mb-8">{phase.description}</p>
                   
                   <div className="space-y-6">
                     <div>
-                      <h4 className="text-xs font-black uppercase tracking-widest text-primary mb-3">Tools</h4>
+                      <h4 className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-primary mb-3">Tools</h4>
                       <div className="flex flex-wrap gap-2">
                         {phase.tools.map((tool, t) => (
-                          <span key={t} className="px-3 py-1 bg-surface-container-high rounded-full text-[10px] font-bold text-primary border border-outline-variant/30">
+                          <span key={t} className="px-2 sm:px-3 py-1 bg-surface-container-high rounded-full text-[9px] sm:text-[10px] font-bold text-primary border border-outline-variant/30">
                             {tool}
                           </span>
                         ))}
@@ -195,38 +195,38 @@ export default function Curriculum() {
                     </div>
                     
                     <div>
-                      <h4 className="text-xs font-black uppercase tracking-widest text-primary mb-3">Deliverables</h4>
-                      <p className="text-xs font-medium text-on-surface-variant leading-relaxed italic">
+                      <h4 className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-primary mb-3">Deliverables</h4>
+                      <p className="text-[10px] sm:text-xs font-medium text-on-surface-variant leading-relaxed italic">
                         {phase.deliverables}
                       </p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="lg:col-span-2 space-y-8">
-                  <div className="grid sm:grid-cols-2 gap-4">
+                <div className="lg:col-span-2 space-y-6 sm:space-y-8 mt-8 lg:mt-0">
+                  <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                     {phase.details.map((detail, j) => (
-                      <div key={j} className="flex items-center gap-4 p-6 bg-surface-container-low rounded-xl border border-outline-variant/30">
-                        <div className="w-6 h-6 rounded-full bg-secondary text-primary flex items-center justify-center font-bold text-[10px] flex-shrink-0">
+                      <div key={j} className="flex items-center gap-3 sm:gap-4 p-4 sm:p-6 bg-surface-container-low rounded-xl border border-outline-variant/30">
+                        <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-secondary text-primary flex items-center justify-center font-bold text-[9px] sm:text-[10px] flex-shrink-0">
                           {j + 1}
                         </div>
-                        <span className="text-sm font-bold text-primary">{detail}</span>
+                        <span className="text-xs sm:text-sm font-bold text-primary">{detail}</span>
                       </div>
                     ))}
                   </div>
 
                   {phase.projects && (
-                    <div className="mt-12">
-                      <h4 className="text-xl font-bold text-primary mb-6 flex items-center gap-3">
-                        <span className="w-8 h-1 bg-secondary rounded-full"></span>
+                    <div className="mt-8 sm:mt-12">
+                      <h4 className="text-lg sm:text-xl font-bold text-primary mb-4 sm:mb-6 flex items-center gap-3">
+                        <span className="w-6 sm:w-8 h-1 bg-secondary rounded-full"></span>
                         AI Projects You'll Build
                       </h4>
-                      <div className="grid sm:grid-cols-2 gap-6">
+                      <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                         {phase.projects.map((project, p) => (
-                          <div key={p} className="p-6 bg-primary text-white rounded-2xl shadow-xl relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 p-4 opacity-10 font-black text-4xl group-hover:scale-110 transition-transform">0{p + 1}</div>
-                            <h5 className="font-bold text-lg mb-2 relative z-10">{project.title}</h5>
-                            <p className="text-xs text-white/70 leading-relaxed relative z-10">{project.desc}</p>
+                          <div key={p} className="p-5 sm:p-6 bg-primary text-white rounded-2xl shadow-xl relative overflow-hidden group">
+                            <div className="absolute top-0 right-0 p-3 sm:p-4 opacity-10 font-black text-3xl sm:text-4xl group-hover:scale-110 transition-transform">0{p + 1}</div>
+                            <h5 className="font-bold text-base sm:text-lg mb-2 relative z-10">{project.title}</h5>
+                            <p className="text-[10px] sm:text-xs text-white/70 leading-relaxed relative z-10">{project.desc}</p>
                           </div>
                         ))}
                       </div>
@@ -234,18 +234,18 @@ export default function Curriculum() {
                   )}
 
                   {phase.covered && (
-                    <div className="mt-12">
-                      <h4 className="text-xl font-bold text-primary mb-6 flex items-center gap-3">
-                        <span className="w-8 h-1 bg-secondary rounded-full"></span>
+                    <div className="mt-8 sm:mt-12">
+                      <h4 className="text-lg sm:text-xl font-bold text-primary mb-4 sm:mb-6 flex items-center gap-3">
+                        <span className="w-6 sm:w-8 h-1 bg-secondary rounded-full"></span>
                         What's Covered
                       </h4>
-                      <div className="grid sm:grid-cols-2 gap-6">
+                      <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                         {phase.covered.map((item, c) => (
-                          <div key={c} className="flex gap-4 items-start">
-                            <div className="text-secondary font-bold text-xl">✦</div>
+                          <div key={c} className="flex gap-3 sm:gap-4 items-start">
+                            <div className="text-secondary font-bold text-lg sm:text-xl">✦</div>
                             <div>
-                              <h5 className="font-bold text-primary mb-1">{item.title}</h5>
-                              <p className="text-xs text-on-surface-variant leading-relaxed">{item.desc}</p>
+                              <h5 className="font-bold text-sm sm:text-base text-primary mb-1">{item.title}</h5>
+                              <p className="text-[10px] sm:text-xs text-on-surface-variant leading-relaxed">{item.desc}</p>
                             </div>
                           </div>
                         ))}
