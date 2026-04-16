@@ -5,7 +5,7 @@ export default function TopBanner({ onEnroll }: { onEnroll: () => void }) {
     <div className="bg-primary text-white py-3 px-4 text-center relative z-[60]">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
         <p className="text-sm font-medium">
-          🔥 The #1 Skill Hiring Managers Want in 2025 — Generative AI Engineering
+          🔥 The #1 Skill Hiring Managers Want in 2026 — Generative AI Engineering
         </p>
         <button 
           onClick={onEnroll}
