@@ -6,9 +6,10 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   title: string;
+  type: 'enroll' | 'brochure';
 }
 
-export default function Modal({ isOpen, onClose, title }: ModalProps) {
+export default function Modal({ isOpen, onClose, title, type }: ModalProps) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

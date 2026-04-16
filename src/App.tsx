@@ -69,6 +69,7 @@ export default function App() {
           isOpen={isEnrollModalOpen} 
           onClose={() => setIsEnrollModalOpen(false)} 
           title="Enrollment Form" 
+          type="enroll" 
         />
       </Suspense>
     </div>
