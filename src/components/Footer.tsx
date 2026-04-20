@@ -69,7 +69,7 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40 font-medium uppercase tracking-widest">
-        <div>© 2024 Neshama Training. All rights reserved.</div>
+        <div>© 2026 Neshama Training. All rights reserved.</div>
         <div className="flex gap-8">
           <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
           <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
