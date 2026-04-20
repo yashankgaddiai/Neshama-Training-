@@ -9,7 +9,7 @@ export default function StickyFooter({ onEnroll }: { onEnroll: () => void }) {
     >
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
         <div className="hidden sm:block">
-          <h4 className="font-bold text-primary">Neshama Training : AI Engineering Masterclass</h4>
+          <h4 className="font-bold text-primary">Neshama Training : AI Engineering</h4>
           <p className="text-xs text-on-surface-variant font-medium">8 Weeks · Live + Recorded · Beginner Friendly</p>
         </div>
         <motion.button 
