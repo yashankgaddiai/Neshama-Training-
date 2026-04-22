@@ -51,7 +51,6 @@ export default function Footer() {
             <li className="flex items-start gap-3">
               <MapPin size={16} className="text-secondary mt-1 flex-shrink-0" />
               <span className="leading-relaxed">
-                Neshama Training and Services Private Limited<br />
                 Plot No: 49, Ground Floor, House No: 7-126/49<br />
                 Kuntloor, Abdullapurmet, Hayath Nagar<br />
                 Rangareddy, Telangana - 501505
