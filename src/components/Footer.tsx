@@ -1,4 +1,4 @@
-import { Github, Twitter, Linkedin, Youtube, Mail, MapPin, Phone } from 'lucide-react';
+import { Github, Twitter, Linkedin, Youtube, Mail, MapPin, Phone, MessageCircle } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -38,15 +38,24 @@ export default function Footer() {
           <ul className="space-y-4 text-sm text-white/60">
             <li className="flex items-center gap-3">
               <Mail size={16} className="text-secondary" />
-              <span>support@neshamatraining.com</span>
+              <a href="mailto:neshamatraining.info@gmail.com" className="hover:text-secondary transition-colors">neshamatraining.info@gmail.com</a>
             </li>
             <li className="flex items-center gap-3">
               <Phone size={16} className="text-secondary" />
-              <span>+91 98765 43210</span>
+              <a href="tel:+919550143619" className="hover:text-secondary transition-colors">+91 95501 43619</a>
+            </li>
+            <li className="flex items-center gap-3">
+              <MessageCircle size={16} className="text-secondary" />
+              <a href="https://wa.me/918143459888" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">+91 81434 59888 (WhatsApp)</a>
             </li>
             <li className="flex items-start gap-3">
-              <MapPin size={16} className="text-secondary mt-1" />
-              <span>Hitech City, Hyderabad,<br />Telangana, India</span>
+              <MapPin size={16} className="text-secondary mt-1 flex-shrink-0" />
+              <span className="leading-relaxed">
+                Neshama Training and Services Private Limited<br />
+                Plot No: 49, Ground Floor, House No: 7-126/49<br />
+                Kuntloor, Abdullapurmet, Hayath Nagar<br />
+                Rangareddy, Telangana - 501505
+              </span>
             </li>
           </ul>
         </div>
