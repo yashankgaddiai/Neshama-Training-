@@ -15,18 +15,11 @@ export default function VideoSection() {
         
         <div className="relative rounded-2xl overflow-hidden shadow-2xl transition-transform duration-500">
           <img 
-            src="/images/1.jpg" 
+            src="https://res.cloudinary.com/dsqmjneyd/image/upload/v1777650190/1_emk2tm.jpg" 
             alt="AI Projects Showcase" 
             className="w-full h-auto object-cover"
             referrerPolicy="no-referrer"
             loading="lazy"
-            onError={(e) => {
-              // Fallback to placeholder if image fails to load during transition
-              const target = e.target as HTMLImageElement;
-              if (!target.src.includes('unsplash')) {
-                target.src = 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop';
-              }
-            }}
           />
         </div>
       </div>
