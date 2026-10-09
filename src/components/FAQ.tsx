@@ -5,28 +5,32 @@ import { motion, AnimatePresence } from 'motion/react';
 export default function FAQ() {
   const faqs = [
     {
-      question: "Do I need coding or AI experience?",
-      answer: "No. The course starts from scratch. We teach you everything you need to know to build AI products."
+      question: "How long is the program and how is it delivered?",
+      answer: "It's a 3-month (12-week) program delivered as Live + Recorded. Live sessions focus on AI engineering, product building and agentic systems, while Python and MERN foundations are available as recorded learning."
     },
     {
-      question: "What is AI-Assisted Development?",
-      answer: "Using AI tools to build applications by describing requirements in plain English."
+      question: "What technologies will I learn?",
+      answer: "Python, HTML/CSS/JavaScript, React + Redux Toolkit, Node/Express/MongoDB, FastAPI, LLM APIs (OpenAI, Claude, Gemini, Grok, OpenRouter), RAG with Pinecone, FAISS and ChromaDB, agent frameworks like LangChain, LangGraph and LlamaIndex, MCP, coding agents (Codex, Claude Code, Hermes Agent, Cursor, GitHub Copilot) and deployment with Docker, Vercel and AWS."
     },
     {
-      question: "Is the course live or recorded?",
-      answer: "Both—recorded lessons and live weekly sessions for interaction and Q&A."
+      question: "How many projects will I build?",
+      answer: "You'll build 12 AI-native projects — from an AI Copilot and Prompt Lab through Knowledge Vault (RAG), a full-stack AI Operations Workspace, ResearchPilot, DevOps Copilot, MCP Command Center and a capstone Autonomous Business Agent."
     },
     {
-      question: "Will I build a RAG pipeline and Custom GPT?",
-      answer: "Yes, as part of the curriculum you will build and deploy these real-world projects."
+      question: "When does career preparation start?",
+      answer: "From Week 1. You'll set up your LinkedIn, GitHub and portfolio in the first week, then build them up as you go, with concentrated resume work, mock interviews and recruiter outreach in Weeks 11–12."
     },
     {
-      question: "Will this help me get a job?",
-      answer: "Yes. The final phase focuses on career readiness, including portfolio building and interview prep."
+      question: "What roles does this program prepare me for?",
+      answer: "AI Engineer, Full-Stack AI Developer, LLM Application Developer, AI Application Engineer, AI Automation Engineer and AI Product Engineer."
     },
     {
-      question: "How many hours per week are required?",
-      answer: "Approximately 3–4 hours per day is recommended to master the skills."
+      question: "What is the fee, and are there payment options?",
+      answer: "The program fee is ₹55,000 (down from ₹1,00,000), inclusive of taxes. Easy EMI options are available, and you can speak with our counsellor about scholarships and exclusive discounts."
+    },
+    {
+      question: "Will I get a certificate?",
+      answer: "Yes — you'll receive a certificate of completion along with a portfolio of deployed projects, GitHub repositories and an AI Engineer resume."
     }
   ];
 
@@ -36,15 +40,15 @@ export default function FAQ() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="py-16 sm:py-32 px-4 sm:px-8" 
+      className="py-20 sm:py-32 px-4 sm:px-8 bg-surface" 
       id="faq"
     >
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-16">
-          <span className="text-primary font-bold uppercase text-[0.75rem] tracking-[0.2em] mb-4 block">
-            ❓ FAQs
+          <span className="text-primary font-bold uppercase text-[0.75rem] tracking-[0.2em] mb-3 block">
+            Questions
           </span>
-          <h2 className="text-3xl font-bold text-primary">Frequently Asked Questions</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-primary">Frequently Asked Questions</h2>
         </div>
         <div className="space-y-4">
           {faqs.map((faq, i) => (
@@ -59,35 +63,37 @@ export default function FAQ() {
 interface FAQItemProps {
   question: string;
   answer: string;
-  key?: string | number;
+  key?: number;
 }
 
 function FAQItem({ question, answer }: FAQItemProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="bg-surface-container-low rounded-xl overflow-hidden border border-outline-variant/30">
+    <div className="border border-outline-variant/30 rounded-2xl overflow-hidden bg-surface-container-low transition-colors duration-200">
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex justify-between items-center p-6 text-left hover:bg-surface-container-high transition-colors duration-300"
+        className="w-full p-6 text-left flex justify-between items-center gap-4 hover:bg-surface-container/50 transition-colors"
       >
-        <h4 className="font-bold text-primary">{question}</h4>
+        <span className="font-bold text-primary text-base sm:text-lg">{question}</span>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.2 }}
+          className="flex-shrink-0"
         >
           <ChevronDown className="text-primary" size={20} />
         </motion.div>
       </button>
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <motion.div 
             initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
+            animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
+            className="overflow-hidden"
           >
-            <div className="p-6 pt-0 text-on-surface-variant leading-relaxed">
+            <div className="p-6 pt-0 text-on-surface-variant text-sm sm:text-base leading-relaxed border-t border-outline-variant/10 mt-2">
               {answer}
             </div>
           </motion.div>

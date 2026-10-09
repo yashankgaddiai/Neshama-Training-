@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { CheckCircle2 } from 'lucide-react';
+import { Phone, MessageCircle, ArrowRight } from 'lucide-react';
 
 export default function FinalCTA({ onEnroll }: { onEnroll: () => void }) {
   return (
@@ -10,38 +10,44 @@ export default function FinalCTA({ onEnroll }: { onEnroll: () => void }) {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="py-16 sm:py-32 px-4 sm:px-8 bg-surface"
     >
-      <div className="max-w-5xl mx-auto rounded-3xl bg-primary text-white p-12 md:p-20 text-center relative overflow-hidden shadow-2xl">
-        <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] bg-cover"></div>
+      <div className="max-w-5xl mx-auto rounded-3xl bg-primary text-white p-10 sm:p-16 md:p-20 text-center relative overflow-hidden shadow-2xl">
         <div className="relative z-10">
           <span className="text-secondary font-bold uppercase text-[0.75rem] tracking-[0.2em] mb-4 block">
-            🔥 Final CTA
+            🚀 Ready to Begin?
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight">Start Your AI Engineering Career Today</h2>
-          <p className="text-xl text-white/80 mb-12 max-w-2xl mx-auto">Generative AI is the biggest hiring wave in tech. Build a portfolio that proves your skills.</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 tracking-tight">
+            Start Your AI Engineering Journey
+          </h2>
+          <p className="text-base sm:text-lg text-white/85 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Talk to a counsellor about the next batch, scholarships and EMI options. Call +91 81434 59888 or +91 95501 43619.
+          </p>
           
-          <div className="flex flex-col items-center gap-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto mb-10">
             <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
               onClick={onEnroll}
-              className="bg-secondary text-primary px-10 py-5 rounded-full font-bold text-xl hover:shadow-2xl transition-all"
+              className="w-full sm:w-auto bg-secondary text-primary px-8 py-4 rounded-full font-bold text-base hover:shadow-xl transition-all"
             >
-              👉 Enroll Now — Reserve My Seat 🚀
+              Book Free Counselling →
             </motion.button>
-            
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-3xl">
-              {[
-                "Lifetime access",
-                "Certificate",
-                "Mentor support",
-                "Job-ready portfolio"
-              ].map((item, i) => (
-                <div key={i} className="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider opacity-80">
-                  <CheckCircle2 size={14} className="text-secondary" />
-                  {item}
-                </div>
-              ))}
-            </div>
+            <motion.a 
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              href="https://wa.me/918143459888"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto border border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-full font-bold text-base transition-all flex items-center justify-center gap-2"
+            >
+              <MessageCircle size={18} />
+              Chat on WhatsApp
+            </motion.a>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-white/60">
+            <span>• 12 Weeks Comprehensive Program</span>
+            <span>• Live AI Engineering Sessions</span>
+            <span>• Career Track from Week 1</span>
           </div>
         </div>
       </div>

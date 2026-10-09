@@ -1,104 +1,93 @@
 import { motion } from 'motion/react';
+import { Cpu, Terminal, Layers, Database, Code, Cloud, HardDrive } from 'lucide-react';
 
 export default function Tools() {
-  const tools = [
-    { name: "ChatGPT", logo: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" },
-    { name: "Claude", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d4/Claude_AI_logo.svg" },
-    { name: "Claude Code", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d4/Claude_AI_logo.svg" },
-    { name: "Cursor AI", logo: "https://mintlify.s3-us-west-1.amazonaws.com/cursor/logo/light.svg" },
-    { name: "Gemini", logo: "https://www.gstatic.com/lamda/images/favicon_v2_711627451e0535799c27.png" },
-    { name: "MCP", logo: "https://modelcontextprotocol.io/favicon.ico" },
-    { name: "NotebookLM", logo: "https://notebooklm.google/favicon.ico" },
-    { name: "Lovable", logo: "https://lovable.dev/favicon.ico" },
-    { name: "V0", logo: "https://v0.dev/favicon.ico" },
-    { name: "Gamma AI", logo: "https://gamma.app/favicon.ico" },
-    { name: "Replit", logo: "https://cdn.worldvectorlogo.com/logos/replit.svg" },
-    { name: "Google AI Studio", logo: "https://www.gstatic.com/lamda/images/favicon_v2_711627451e0535799c27.png" },
-    { name: "Next.js", logo: "https://cdn.worldvectorlogo.com/logos/next-js.svg" },
-    { name: "Node.js", logo: "https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg" },
-    { name: "Tailwind", logo: "https://cdn.worldvectorlogo.com/logos/tailwindcss.svg" },
-    { name: "Supabase", logo: "https://cdn.worldvectorlogo.com/logos/supabase.svg" },
-    { name: "Firebase", logo: "https://cdn.worldvectorlogo.com/logos/firebase-1.svg" },
-    { name: "Vercel", logo: "https://cdn.worldvectorlogo.com/logos/vercel.svg" },
-    { name: "GitHub", logo: "https://cdn.worldvectorlogo.com/logos/github-icon-1.svg" },
-    { name: "Jira", logo: "https://cdn.worldvectorlogo.com/logos/jira-1.svg" },
+  const categories = [
+    {
+      title: "AI Models & APIs",
+      icon: <Cpu className="text-secondary" size={18} />,
+      tools: ["OpenAI", "Claude / Anthropic", "Gemini", "Grok", "OpenRouter"]
+    },
+    {
+      title: "Coding Agents",
+      icon: <Terminal className="text-secondary" size={18} />,
+      tools: ["Codex", "Claude Code", "Hermes Agent", "Cursor", "GitHub Copilot"]
+    },
+    {
+      title: "AI Frameworks",
+      icon: <Layers className="text-secondary" size={18} />,
+      tools: ["LangChain", "LangGraph", "LlamaIndex", "Hugging Face"]
+    },
+    {
+      title: "RAG & Vector",
+      icon: <Database className="text-secondary" size={18} />,
+      tools: ["Pinecone", "FAISS", "ChromaDB", "Embeddings"]
+    },
+    {
+      title: "Full-Stack",
+      icon: <Code className="text-secondary" size={18} />,
+      tools: ["Python", "FastAPI", "JavaScript", "React", "Node.js", "Express", "MongoDB", "SQL"]
+    },
+    {
+      title: "Ship & Deploy",
+      icon: <Cloud className="text-secondary" size={18} />,
+      tools: ["Git", "GitHub", "Postman", "Swagger / OpenAPI", "Docker", "Vercel", "AWS"]
+    },
+    {
+      title: "Local AI",
+      icon: <HardDrive className="text-secondary" size={18} />,
+      tools: ["Ollama", "Open-source models", "Local inference"]
+    }
   ];
 
-  // Split tools into two rows for a more dynamic animation
-  const row1 = tools.slice(0, 10);
-  const row2 = tools.slice(10);
-
-  const ToolCard = ({ tool }: { tool: typeof tools[0] }) => (
-    <motion.div 
-      whileHover={{ y: -5, scale: 1.05 }}
-      className="flex items-center gap-3 px-6 py-4 bg-white rounded-2xl shadow-soft border border-outline-variant/30 hover:border-primary/50 transition-all duration-300 group cursor-default flex-shrink-0"
-    >
-      <div className="w-8 h-8 flex items-center justify-center overflow-hidden">
-        <img 
-          src={tool.logo} 
-          alt={tool.name} 
-          className="w-full h-full object-contain transition-all duration-300"
-          referrerPolicy="no-referrer"
-          loading="lazy"
-          onError={(e) => {
-            (e.target as HTMLImageElement).style.display = 'none';
-          }}
-        />
-      </div>
-      <span className="font-bold text-primary">{tool.name}</span>
-    </motion.div>
-  );
-
   return (
-    <section className="py-20 sm:py-32 px-4 sm:px-8 bg-surface-container-low overflow-hidden">
+    <motion.section 
+      id="tools"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="py-20 sm:py-32 px-4 sm:px-8 bg-surface-container-low"
+    >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="text-primary font-bold uppercase text-[0.75rem] tracking-[0.2em] mb-4 block">
-            🛠 Tools Covered
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-primary font-bold uppercase text-[0.75rem] tracking-[0.2em] mb-3 block">
+            Tools Taught Through Practical Workflows
           </span>
-          <h2 className="text-4xl font-bold tracking-tight text-primary">Master the Modern AI Stack</h2>
-        </div>
-      </div>
-
-      <div className="space-y-8">
-        {/* Row 1: Moving Left */}
-        <div className="relative flex overflow-hidden">
-          <motion.div 
-            className="flex gap-6 whitespace-nowrap"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ 
-              duration: 30, 
-              repeat: Infinity, 
-              ease: "linear" 
-            }}
-          >
-            {[...row1, ...row1, ...row1, ...row1].map((tool, i) => (
-              <div key={`row1-${i}`}>
-                <ToolCard tool={tool} />
-              </div>
-            ))}
-          </motion.div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-primary mb-4">
+            AI Tools & Technology Stack
+          </h2>
+          <p className="text-base sm:text-lg text-on-surface-variant">
+            Hands-on with the models, agents and frameworks used to build real AI products today.
+          </p>
         </div>
 
-        {/* Row 2: Moving Right */}
-        <div className="relative flex overflow-hidden">
-          <motion.div 
-            className="flex gap-6 whitespace-nowrap"
-            animate={{ x: ["-50%", "0%"] }}
-            transition={{ 
-              duration: 35, 
-              repeat: Infinity, 
-              ease: "linear" 
-            }}
-          >
-            {[...row2, ...row2, ...row2, ...row2].map((tool, i) => (
-              <div key={`row2-${i}`}>
-                <ToolCard tool={tool} />
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {categories.map((cat, i) => (
+            <div 
+              key={i} 
+              className="p-6 rounded-3xl bg-white border border-outline-variant/30 shadow-soft flex flex-col"
+            >
+              <div className="flex items-center gap-2.5 mb-4 pb-3 border-b border-outline-variant/20">
+                <div className="p-2 rounded-xl bg-surface-container">
+                  {cat.icon}
+                </div>
+                <h3 className="font-bold text-primary text-base">{cat.title}</h3>
               </div>
-            ))}
-          </motion.div>
+              <div className="flex flex-wrap gap-2 mt-auto">
+                {cat.tools.map((tool, j) => (
+                  <span 
+                    key={j} 
+                    className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-surface-container-low text-primary border border-outline-variant/30 hover:border-secondary transition-colors"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

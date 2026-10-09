@@ -1,279 +1,413 @@
-import { motion } from 'motion/react';
-import { ChevronRight } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { ChevronDown, CheckCircle2, FolderGit2, Sparkles, BookOpen } from 'lucide-react';
 
 export default function Curriculum() {
-  const phases = [
+  const [activeModule, setActiveModule] = useState(0);
+
+  const modules = [
     {
-      id: "phase-1",
-      title: "Phase 1",
-      subtitle: "Corporate Skills",
-      headline: "Become Corporate-Ready from Day One",
-      description: "Master real-world corporate workflows and collaboration tools to work like a developer.",
-      details: [
-        "Understand SDLC & Agile methodologies",
-        "Run Scrum meetings and manage projects",
-        "Collaborate using industry-standard tools",
-        "Build a professional GitHub portfolio"
+      id: "module-01",
+      number: "01",
+      title: "Module 01 — Python Foundations",
+      badge: "Recorded Foundation",
+      outcome: "Build a solid Python base and begin using AI as a development assistant.",
+      sections: [
+        {
+          heading: "Recorded Core",
+          items: [
+            "Python syntax, variables and data types",
+            "Conditional statements and loops",
+            "Lists, tuples, sets and dictionaries",
+            "Functions, modules and packages",
+            "OOP fundamentals",
+            "File handling and exception handling",
+            "JSON, HTTP and API basics",
+            "Git and GitHub fundamentals"
+          ]
+        },
+        {
+          heading: "AI-Assisted Coding",
+          items: [
+            "Using AI to explain code",
+            "AI-assisted debugging",
+            "Code generation and refactoring",
+            "Structured AI outputs",
+            "Introduction to LLM API usage"
+          ]
+        }
       ],
-      deliverables: "Corporate workflow simulation certificate · Team-based GitHub projects · Industry-ready collaboration experience",
-      tools: ["GitHub", "Jira", "Microsoft Teams", "LinkedIn"]
+      deliverables: [
+        "AI Quiz Studio — generate structured quizzes from natural-language topics.",
+        "Code Insight — analyze source code and generate AI-powered explanations."
+      ]
     },
     {
-      id: "phase-2",
-      title: "Phase 2",
-      subtitle: "AI Foundations",
-      headline: "Master the Power of Artificial Intelligence",
-      description: "Leverage cutting-edge AI tools to build intelligent solutions. Learn Generative AI, Prompt Engineering, Custom GPTs, and RAG pipelines.",
-      details: [
-        "Master Prompt Engineering techniques",
-        "Build & deploy Custom GPTs",
-        "Conduct AI-powered research & automation",
-        "Create professional presentations using AI"
+      id: "module-02",
+      number: "02",
+      title: "Module 02 — Web & MERN Foundations",
+      badge: "Recorded Foundation",
+      outcome: "Build the web foundation needed to ship AI-powered interfaces.",
+      sections: [
+        {
+          heading: "Frontend",
+          items: [
+            "HTML and semantic structure",
+            "CSS layout and responsive design",
+            "Modern JavaScript and ES6+",
+            "Promises and Async/Await",
+            "Fetch API and browser APIs",
+            "React components, props, state and hooks",
+            "Routing and forms",
+            "Redux Toolkit fundamentals"
+          ]
+        },
+        {
+          heading: "Backend",
+          items: [
+            "Node.js fundamentals",
+            "Express.js and REST APIs",
+            "MongoDB and data modeling",
+            "Authentication basics",
+            "Frontend/backend integration",
+            "Streaming responses in the browser"
+          ]
+        }
       ],
-      deliverables: "Custom AI agents · AI-powered projects · Voice cloning demonstrations",
-      tools: ["ChatGPT", "Claude Code", "NotebookLM", "Gamma AI", "Voice Cloning AI"]
+      deliverables: [
+        "AI Productivity Board — AI-assisted task and productivity workflow.",
+        "Smart Content Desk — generate, rewrite, summarize and organize content."
+      ]
     },
     {
-      id: "phase-3",
-      title: "Phase 3",
-      subtitle: "AI Dev Tools",
-      headline: "Build Faster with AI-Powered Development",
-      description: "Accelerate development using modern AI coding and design tools. Use AI-Assisted Development to write, debug, and ship production-ready code at speed.",
-      details: [
-        "Build applications using AI-assisted coding",
-        "Generate UI designs with AI tools",
-        "Debug and optimize code efficiently",
-        "Streamline workflows using intelligent assistants"
+      id: "module-03",
+      number: "03",
+      title: "Module 03 — LLM Engineering",
+      badge: "Live AI Engineering",
+      outcome: "Build production-style AI features on top of modern LLM APIs.",
+      sections: [
+        {
+          heading: "Week 1–2 Topics & Prompt Engineering",
+          items: [
+            "Generative AI fundamentals & LLM architecture",
+            "Tokens, tokenization, context windows, transformers & attention",
+            "Parameters, inference, temperature, Top-P & output limits",
+            "Hallucinations and model limitations",
+            "System and user prompts, zero-shot and few-shot prompting",
+            "Role prompting & prompt templates",
+            "Structured JSON outputs, optimization & evaluation"
+          ]
+        },
+        {
+          heading: "LLM APIs & Integration",
+          items: [
+            "OpenAI API, Anthropic / Claude API, Google Gemini API",
+            "Grok API concepts",
+            "OpenRouter multi-model aggregation",
+            "Streaming responses in real time",
+            "Function calling & tool execution",
+            "Error handling, rate limits and cost awareness"
+          ]
+        }
       ],
-      deliverables: "AI-assisted development projects · Intelligent UI prototypes · Optimized production-ready code",
-      tools: ["Cursor AI", "Claude Code", "Kilo Code", "Anti-Gravity", "Google AI Studio", "Lovable", "V0"]
+      deliverables: [
+        "Neshama AI Copilot — multi-model assistant with streaming and configurable instructions.",
+        "Prompt Lab — experiment, compare and evaluate prompt outputs."
+      ]
     },
     {
-      id: "phase-4",
-      title: "Phase 4",
-      subtitle: "Build Real Apps, AI Coding Tools & Deployment",
-      headline: "Build, Deploy & Scale Real-World Applications",
-      description: "Develop, deploy, and scale production-ready AI-powered applications. Build a full-stack app with frontend, backend, and AI integration.",
-      details: [
-        "Build responsive front-end interfaces",
-        "Develop scalable backend systems",
-        "Integrate databases & authentication",
-        "Deploy AI SaaS MVPs live on the internet"
+      id: "module-04",
+      number: "04",
+      title: "Module 04 — RAG & Knowledge Engineering",
+      badge: "Live AI Engineering",
+      outcome: "Build AI systems that can answer questions using private or domain-specific information.",
+      sections: [
+        {
+          heading: "Retrieval Foundations & RAG Pipeline",
+          items: [
+            "Embeddings, semantic similarity, vector representations",
+            "Vector databases: FAISS, ChromaDB, Pinecone",
+            "Indexing and metadata, similarity retrieval",
+            "Document ingestion and processing pipelines",
+            "Chunking strategies & embedding generation",
+            "Context construction, prompt assembly & answer generation"
+          ]
+        },
+        {
+          heading: "Advanced RAG & Quality Grounding",
+          items: [
+            "Metadata filtering & query rewriting",
+            "Hybrid search (BM25 + Dense Vectors) & Reranking",
+            "Context optimization & retrieval evaluation",
+            "Groundedness metrics & hallucination reduction"
+          ]
+        }
       ],
-      projects: [
-        { title: "AI Chatbot with RAG", desc: "A smart chatbot that answers questions from your own documents using a live RAG pipeline" },
-        { title: "Custom GPT Tool", desc: "Your own AI assistant trained on custom instructions and connected to real tools via MCP" },
-        { title: "AI-Powered Full-Stack Web App", desc: "Next.js app with AI features, user auth, and a live database — deployed on Vercel" },
-        { title: "AI SaaS MVP", desc: "A production-grade SaaS product with scalable backend, AI integration, and live deployment" }
-      ],
-      deliverables: "Full-stack AI applications · AI SaaS MVPs · Live deployed projects",
-      tools: ["Next.js", "Tailwind CSS", "Node.js", "Express", "Supabase", "Firebase", "Replit", "Vercel", "Render"]
+      deliverables: [
+        "Knowledge Vault — document upload, embeddings, retrieval and grounded answers.",
+        "Business Knowledge Assistant — domain-specific RAG for organizational information."
+      ]
     },
     {
-      id: "phase-5",
-      title: "Phase 5",
-      subtitle: "Portfolio",
-      headline: "Build a Portfolio That Gets You Hired",
-      description: "Showcase your expertise through real-world projects and professional case studies. Turn everything you built into an undeniable hiring asset.",
-      details: [
-        "Create a professional portfolio website",
-        "Document real-world AI projects",
-        "Prepare for technical interviews",
-        "Present deployed apps confidently"
+      id: "module-05",
+      number: "05",
+      title: "Module 05 — Full-Stack AI Product Engineering",
+      badge: "Live AI Product Development",
+      outcome: "Turn individual AI capabilities into complete software products.",
+      sections: [
+        {
+          heading: "Backend & Application Layer",
+          items: [
+            "Python + FastAPI architecture",
+            "REST API design & Pydantic request validation",
+            "Authentication, JWT and security",
+            "File uploads and database integration",
+            "AI service layer, error handling & configuration"
+          ]
+        },
+        {
+          heading: "Frontend, Product Layer & Production",
+          items: [
+            "React integration & modern AI chat interfaces",
+            "Streaming UI, loading skeletons & error states",
+            "Conversation history & user flows",
+            "Product architecture: Frontend → Backend → AI model integration",
+            "Git, GitHub, Postman, secrets management & environment variables"
+          ]
+        }
       ],
-      covered: [
-        { title: "LinkedIn Optimisation", desc: "Full profile rewrite — headline, about, skills, featured section — so recruiters find you" },
-        { title: "Portfolio Website", desc: "Live site with all AI projects, case studies, and demo videos" },
-        { title: "GitHub Profile", desc: "Pinned repos, README, and contribution graph that signal active builder" },
-        { title: "Resume for AI Roles", desc: "1-page resume with AI keywords and project outcomes that pass ATS" },
-        { title: "Mock Interviews", desc: "Live technical and behavioural practice with real feedback from industry coaches" },
-        { title: "Job Outreach", desc: "Cold message templates and a target company list — outreach starts before the course ends" }
+      deliverables: [
+        "AI Operations Workspace — React + Python + database + LLM/RAG full-stack product."
+      ]
+    },
+    {
+      id: "module-06",
+      number: "06",
+      title: "Module 06 — Agentic AI Engineering",
+      badge: "Live Agent Systems",
+      outcome: "Design agents that can reason through tasks, use tools and execute multi-step workflows.",
+      sections: [
+        {
+          heading: "Agent Fundamentals & Design Patterns",
+          items: [
+            "What is Agentic AI? Assistant vs Agent comparison",
+            "Perception → Reasoning → Action loop",
+            "Planning, task decomposition, and reasoning loops",
+            "Tool selection, execution & state management",
+            "Short-term and long-term memory",
+            "Router agents, Planner-Executor, Reflection & Human-in-the-loop patterns"
+          ]
+        },
+        {
+          heading: "Frameworks & Workflow Orchestration",
+          items: [
+            "LangChain, LangGraph, and LlamaIndex",
+            "Agent state & graph-based workflows",
+            "Conditional routing, loops and orchestration",
+            "Multi-step autonomous execution"
+          ]
+        }
       ],
-      deliverables: "Portfolio website with live projects · Documented case studies · Recorded demo videos · Interview-ready presentations",
-      tools: ["GitHub", "Portfolio Templates"]
+      deliverables: [
+        "ResearchPilot — autonomous research workflow using tools, planning and structured outputs.",
+        "Workflow Agent — multi-step business workflow executor."
+      ]
+    },
+    {
+      id: "module-07",
+      number: "07",
+      title: "Module 07 — AI Coding Agents & MCP",
+      badge: "Live Agentic Development",
+      outcome: "Build agentic developer workflows and connect AI systems to real tools.",
+      sections: [
+        {
+          heading: "AI Coding Agents & Agentic Workflows",
+          items: [
+            "OpenAI Codex, Claude Code, Hermes Agent, Grok",
+            "Cursor, GitHub Copilot & repository understanding",
+            "Task delegation, code generation, debugging & refactoring",
+            "Test generation, code review & Git workflows",
+            "Requirement → plan → implementation workflow",
+            "Iterative debugging and human approval permissions"
+          ]
+        },
+        {
+          heading: "MCP (Model Context Protocol)",
+          items: [
+            "Model Context Protocol fundamentals",
+            "MCP clients and servers, tools, resources, and prompts",
+            "Building custom MCP servers",
+            "Connecting agents to databases and external APIs",
+            "MCP with coding agents and custom applications"
+          ]
+        }
+      ],
+      deliverables: [
+        "DevOps Copilot — repository-aware coding agent that inspects, modifies and tests code.",
+        "MCP Command Center — connect an AI agent to external tools, APIs and data."
+      ]
+    },
+    {
+      id: "module-08",
+      number: "08",
+      title: "Module 08 — Production AI Engineering",
+      badge: "Live + Capstone",
+      outcome: "Deploy reliable AI systems and understand the operational concerns behind production agents.",
+      sections: [
+        {
+          heading: "Production Multi-Agent Systems & Safety",
+          items: [
+            "Multi-agent systems: Supervisor and worker agents",
+            "Agent communication, memory architecture & persistent state",
+            "Task delegation & result aggregation",
+            "Agent reliability, tool errors & infinite-loop prevention",
+            "Prompt injection & tool injection awareness",
+            "Logging, tracing, cost monitoring & automated evaluation"
+          ]
+        },
+        {
+          heading: "Deploy, Operate & Scale",
+          items: [
+            "Docker containerization fundamentals",
+            "Vercel and backend cloud deployment",
+            "AWS fundamentals & environment configuration",
+            "API security, rate limiting, and token optimization",
+            "Caching, monitoring & production readiness"
+          ]
+        }
+      ],
+      deliverables: [
+        "Autonomous Business Agent — RAG + tools + memory + multi-agent workflow capstone."
+      ]
     }
   ];
 
-  const scrollToPhase = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+  const handleBrochureClick = () => {
+    window.open("https://drive.google.com/uc?export=view&id=1u2bwNXjPORDy1XJcWH07nEoGmvp-8I88", "_blank");
   };
 
   return (
-    <section className="py-20 sm:py-32 px-4 sm:px-8" id="curriculum">
+    <section className="py-20 sm:py-32 px-4 sm:px-8 bg-surface" id="curriculum">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-12 sm:mb-20 text-center">
-          <span className="text-primary font-bold uppercase text-[0.7rem] sm:text-[0.75rem] tracking-[0.2em] mb-4 block">
-            🧩 Curriculum (5 Phases)
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-primary font-bold uppercase text-[0.75rem] tracking-[0.2em] mb-3 block">
+            Neshama AI Engineering · Curriculum
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-primary mb-8 sm:mb-12">
-            The 8-Week AI Engineering Roadmap
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-primary mb-4">
+            Module-by-module curriculum
           </h2>
-
-          {/* Progress Bar */}
-          <div className="max-w-4xl mx-auto mb-12 sm:mb-20">
-            <div className="flex justify-between mb-4 text-[10px] sm:text-xs font-black uppercase tracking-widest text-primary">
-              <span>Week 1</span>
-              <span className="hidden sm:inline">Week 4</span>
-              <span>Week 8</span>
-            </div>
-            <div className="h-3 sm:h-4 bg-surface-container-low rounded-full overflow-hidden border border-outline-variant/30 p-0.5 sm:p-1">
-              <motion.div 
-                initial={{ width: 0 }}
-                whileInView={{ width: '100%' }}
-                transition={{ duration: 2, ease: "easeOut" }}
-                className="h-full bg-primary rounded-full relative"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"></div>
-              </motion.div>
-            </div>
-            <div className="grid grid-cols-5 mt-4 gap-1 sm:gap-2">
-              {phases.map((phase, i) => (
-                <div key={i} className="text-center">
-                  <div className="text-[8px] sm:text-[10px] font-bold text-outline uppercase">P{i + 1}</div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <p className="text-base sm:text-lg text-on-surface-variant">
+            Pick a module to see its topics, the projects you'll ship and the outcome you'll walk away with.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-20 sm:mb-32">
-          {phases.map((phase, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              viewport={{ once: true }}
-              onClick={() => scrollToPhase(phase.id)}
-              className="p-6 sm:p-8 rounded-2xl bg-surface-container-low border-l-4 sm:border-l-8 border-primary hover:shadow-soft transition-all duration-300 cursor-pointer group"
+        {/* Module selector pills */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 mb-10">
+          {modules.map((m, idx) => {
+            const isSelected = activeModule === idx;
+            return (
+              <button
+                key={m.id}
+                onClick={() => setActiveModule(idx)}
+                className={`py-3 px-2 rounded-xl text-xs font-bold text-center transition-all border ${
+                  isSelected 
+                    ? 'bg-primary text-white border-primary shadow-md' 
+                    : 'bg-surface-container-low text-on-surface-variant border-outline-variant/30 hover:border-outline hover:text-primary'
+                }`}
+              >
+                <div className={`text-[10px] font-black uppercase ${isSelected ? 'text-secondary' : 'opacity-60'}`}>
+                  MOD {m.number}
+                </div>
+                <div className="truncate mt-0.5">{m.badge.split(' ')[0]}</div>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Active Module Details Card */}
+        <AnimatePresence mode="wait">
+          {modules[activeModule] && (
+            <motion.div
+              key={modules[activeModule].id}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.3 }}
+              className="p-6 sm:p-10 rounded-3xl bg-surface-container-low border border-outline-variant/30 shadow-soft"
             >
-              <div className="flex justify-between items-start">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-outline-variant/30">
                 <div>
-                  <span className="text-primary font-black text-xs sm:text-sm uppercase mb-2 block">{phase.title}</span>
-                  <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-primary">{phase.subtitle}</h3>
-                  <p className="text-on-surface-variant text-xs sm:text-sm leading-relaxed mb-4">{phase.description}</p>
-                  <span className="text-primary font-bold text-xs sm:text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                    View Details <ChevronRight size={14} />
+                  <span className="inline-block px-3 py-1 rounded-full bg-secondary/15 text-primary text-xs font-bold uppercase tracking-wider mb-2 border border-secondary/30">
+                    {modules[activeModule].badge}
                   </span>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-primary">
+                    {modules[activeModule].title}
+                  </h3>
+                </div>
+                <div className="p-4 rounded-2xl bg-white border border-outline-variant/30 max-w-sm">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-secondary block mb-1">Target Outcome</span>
+                  <p className="text-xs sm:text-sm font-semibold text-primary leading-snug">
+                    {modules[activeModule].outcome}
+                  </p>
+                </div>
+              </div>
+
+              {/* Topics Sections */}
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                {modules[activeModule].sections.map((section, sIdx) => (
+                  <div key={sIdx} className="p-6 rounded-2xl bg-white border border-outline-variant/30">
+                    <h4 className="text-base font-bold text-primary mb-4 flex items-center gap-2">
+                      <BookOpen size={16} className="text-secondary" />
+                      {section.heading}
+                    </h4>
+                    <ul className="space-y-2.5">
+                      {section.items.map((item, iIdx) => (
+                        <li key={iIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-on-surface-variant font-medium">
+                          <CheckCircle2 size={15} className="text-secondary mt-0.5 flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+
+              {/* Project Deliverables */}
+              <div className="p-6 rounded-2xl bg-primary text-white">
+                <span className="text-xs font-bold uppercase tracking-wider text-secondary block mb-2 flex items-center gap-1.5">
+                  <FolderGit2 size={16} /> Project Deliverables
+                </span>
+                <div className="space-y-2">
+                  {modules[activeModule].deliverables.map((del, dIdx) => (
+                    <div key={dIdx} className="text-sm font-semibold text-white/95 flex items-start gap-2">
+                      <span className="text-secondary">•</span>
+                      <span>{del}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </motion.div>
-          ))}
-        </div>
-
-        {/* Detailed Breakdown Section */}
-        <div className="space-y-20 sm:space-y-32">
-          <div className="text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">Detailed Phase Breakdown</h2>
-            <p className="text-sm sm:text-base text-on-surface-variant">5 phases. Step by step. Zero fluff.</p>
-          </div>
-          
-          {phases.map((phase, i) => (
-            <div key={i} id={phase.id} className="scroll-mt-24 sm:scroll-mt-32">
-              <div className="grid lg:grid-cols-3 gap-8 sm:gap-12 items-start">
-                <div className="lg:col-span-1">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary text-white flex items-center justify-center font-black text-lg sm:text-xl mb-4 sm:mb-6">
-                    {i + 1}
-                  </div>
-                  <span className="text-primary font-black text-xs sm:text-sm uppercase mb-2 block">{phase.title} — {phase.subtitle}</span>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-primary mb-4">{phase.headline}</h3>
-                  <p className="text-sm sm:text-base text-on-surface-variant mb-6 sm:mb-8">{phase.description}</p>
-                  
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-primary mb-3">Tools</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {phase.tools.map((tool, t) => (
-                          <span key={t} className="px-2 sm:px-3 py-1 bg-surface-container-high rounded-full text-[9px] sm:text-[10px] font-bold text-primary border border-outline-variant/30">
-                            {tool}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <h4 className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-primary mb-3">Deliverables</h4>
-                      <p className="text-[10px] sm:text-xs font-medium text-on-surface-variant leading-relaxed italic">
-                        {phase.deliverables}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="lg:col-span-2 space-y-6 sm:space-y-8 mt-8 lg:mt-0">
-                  <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
-                    {phase.details.map((detail, j) => (
-                      <div key={j} className="flex items-center gap-3 sm:gap-4 p-4 sm:p-6 bg-surface-container-low rounded-xl border border-outline-variant/30">
-                        <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-secondary text-primary flex items-center justify-center font-bold text-[9px] sm:text-[10px] flex-shrink-0">
-                          {j + 1}
-                        </div>
-                        <span className="text-xs sm:text-sm font-bold text-primary">{detail}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {phase.projects && (
-                    <div className="mt-8 sm:mt-12">
-                      <h4 className="text-lg sm:text-xl font-bold text-primary mb-4 sm:mb-6 flex items-center gap-3">
-                        <span className="w-6 sm:w-8 h-1 bg-secondary rounded-full"></span>
-                        AI Projects You'll Build
-                      </h4>
-                      <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
-                        {phase.projects.map((project, p) => (
-                          <div key={p} className="p-5 sm:p-6 bg-primary text-white rounded-2xl shadow-xl relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 p-3 sm:p-4 opacity-10 font-black text-3xl sm:text-4xl group-hover:scale-110 transition-transform">0{p + 1}</div>
-                            <h5 className="font-bold text-base sm:text-lg mb-2 relative z-10">{project.title}</h5>
-                            <p className="text-[10px] sm:text-xs text-white/70 leading-relaxed relative z-10">{project.desc}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {phase.covered && (
-                    <div className="mt-8 sm:mt-12">
-                      <h4 className="text-lg sm:text-xl font-bold text-primary mb-4 sm:mb-6 flex items-center gap-3">
-                        <span className="w-6 sm:w-8 h-1 bg-secondary rounded-full"></span>
-                        What's Covered
-                      </h4>
-                      <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
-                        {phase.covered.map((item, c) => (
-                          <div key={c} className="flex gap-3 sm:gap-4 items-start">
-                            <div className="text-secondary font-bold text-lg sm:text-xl">✦</div>
-                            <div>
-                              <h5 className="font-bold text-sm sm:text-base text-primary mb-1">{item.title}</h5>
-                              <p className="text-[10px] sm:text-xs text-on-surface-variant leading-relaxed">{item.desc}</p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+          )}
+        </AnimatePresence>
 
         {/* Brochure Download CTA */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="mt-20 sm:mt-32 p-8 sm:p-12 rounded-[2rem] bg-surface-container-low border border-outline-variant/30 text-center max-w-4xl mx-auto"
+          className="mt-16 p-8 sm:p-12 rounded-[2rem] bg-surface-container-low border border-outline-variant/30 text-center max-w-4xl mx-auto"
         >
-          <div className="mb-8">
-            <h3 className="text-2xl sm:text-3xl font-bold text-primary mb-4">Want the Full 8-Week Roadmap?</h3>
-            <p className="text-on-surface-variant text-sm sm:text-base">Download the detailed curriculum brochure and share it with your team or sponsors.</p>
+          <div className="mb-6">
+            <h3 className="text-2xl sm:text-3xl font-bold text-primary mb-3">Want the Full 12-Week Roadmap?</h3>
+            <p className="text-on-surface-variant text-sm sm:text-base max-w-xl mx-auto">
+              Download the comprehensive curriculum brochure with topic breakdown, project architectures, and schedule.
+            </p>
           </div>
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => window.open("https://drive.google.com/uc?export=view&id=1u2bwNXjPORDy1XJcWH07nEoGmvp-8I88", "_blank")}
-            className="inline-flex items-center gap-2 bg-primary text-white px-10 py-5 rounded-full font-bold text-lg hover:shadow-2xl transition-all"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            onClick={handleBrochureClick}
+            className="inline-flex items-center gap-2.5 bg-primary text-white px-8 py-4 rounded-full font-bold text-base sm:text-lg hover:shadow-xl transition-all"
           >
             📂 Download Full Curriculum PDF
           </motion.button>

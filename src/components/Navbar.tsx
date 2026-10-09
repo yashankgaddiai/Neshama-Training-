@@ -1,28 +1,87 @@
-import { Menu } from 'lucide-react';
-import { motion } from 'motion/react';
+import { Menu, X } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 
-export default function Navbar() {
+export default function Navbar({ onEnroll }: { onEnroll?: () => void }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const links = [
+    { label: "Brochure", href: "#brochure" },
+    { label: "Curriculum", href: "#curriculum" },
+    { label: "Instructors", href: "#instructors" },
+    { label: "Projects", href: "#projects" },
+    { label: "Career Track", href: "#career" },
+    { label: "Fees", href: "#fees" },
+    { label: "FAQ", href: "#faq" },
+  ];
+
   return (
-    <nav className="fixed top-0 w-full z-50 glass-header shadow-soft h-20">
-      <div className="max-w-7xl mx-auto px-8 flex justify-between items-center h-full">
-        <div className="text-2xl font-black text-primary">Neshama Training : AI Engineering Masterclass</div>
-        <div className="hidden md:flex gap-8 items-center">
-          <a className="text-on-surface-variant hover:text-primary font-bold text-sm tracking-tight transition-all duration-300" href="#curriculum">Curriculum</a>
-          <a className="text-on-surface-variant hover:text-primary font-bold text-sm tracking-tight transition-all duration-300" href="#projects">Projects</a>
-          <a className="text-on-surface-variant hover:text-primary font-bold text-sm tracking-tight transition-all duration-300" href="#outcomes">Outcomes</a>
-          <a className="text-on-surface-variant hover:text-primary font-bold text-sm tracking-tight transition-all duration-300" href="#faq">FAQ</a>
+    <nav className="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 flex justify-between items-center h-18">
+        <a href="#" className="flex flex-col text-left">
+          <span className="text-lg sm:text-xl font-black tracking-tight text-primary">NESHAMA AI ENGINEERING</span>
+          <span className="text-[10px] font-semibold text-secondary uppercase tracking-widest -mt-0.5">Full-Stack AI Engineering Program</span>
+        </a>
+
+        <div className="hidden lg:flex gap-7 items-center">
+          {links.map((link) => (
+            <a 
+              key={link.label}
+              className="text-on-surface-variant hover:text-primary font-bold text-sm tracking-tight transition-colors duration-200" 
+              href={link.href}
+            >
+              {link.label}
+            </a>
+          ))}
           <motion.button 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-secondary text-primary px-6 py-2.5 rounded-full font-bold text-sm hover:opacity-90 transition-all duration-300"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            onClick={onEnroll}
+            className="bg-primary text-white px-6 py-2 rounded-full font-bold text-sm hover:shadow-md transition-all"
           >
-            Enroll Now
+            Apply Now
           </motion.button>
         </div>
-        <button className="md:hidden text-primary">
-          <Menu size={24} />
+
+        <button 
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="lg:hidden text-primary p-2 focus:outline-none"
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
+
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden bg-surface border-b border-outline-variant/30 px-6 py-4 flex flex-col gap-3"
+          >
+            {links.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-primary font-bold text-base py-1"
+              >
+                {link.label}
+              </a>
+            ))}
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onEnroll?.();
+              }}
+              className="bg-primary text-white py-3 rounded-full font-bold text-center mt-2"
+            >
+              Apply Now
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

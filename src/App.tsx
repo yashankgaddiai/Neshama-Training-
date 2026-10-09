@@ -5,18 +5,24 @@
 
 import { useState, lazy, Suspense, useEffect } from 'react';
 import TopBanner from './components/TopBanner';
+import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 
 // Lazy load components below the fold
-const VideoSection = lazy(() => import('./components/VideoSection'));
-const Countdown = lazy(() => import('./components/Countdown'));
+const BrochureSlideshow = lazy(() => import('./components/BrochureSlideshow'));
+const Blueprint = lazy(() => import('./components/Blueprint'));
 const Learn = lazy(() => import('./components/Learn'));
-const Outcomes = lazy(() => import('./components/Outcomes'));
-const Audience = lazy(() => import('./components/Audience'));
+const Roadmap = lazy(() => import('./components/Roadmap'));
 const Curriculum = lazy(() => import('./components/Curriculum'));
-const Tools = lazy(() => import('./components/Tools'));
+const AgenticAI = lazy(() => import('./components/AgenticAI'));
 const Instructor = lazy(() => import('./components/Instructor'));
-const Testimonials = lazy(() => import('./components/Testimonials'));
+const Tools = lazy(() => import('./components/Tools'));
+const Projects = lazy(() => import('./components/Projects'));
+const CareerTrack = lazy(() => import('./components/CareerTrack'));
+const Communication = lazy(() => import('./components/Communication'));
+const RolesAndInterviews = lazy(() => import('./components/RolesAndInterviews'));
+const Outcomes = lazy(() => import('./components/Outcomes'));
+const Fees = lazy(() => import('./components/Fees'));
 const FAQ = lazy(() => import('./components/FAQ'));
 const FinalCTA = lazy(() => import('./components/FinalCTA'));
 const StickyFooter = lazy(() => import('./components/StickyFooter'));
@@ -52,18 +58,24 @@ export default function App() {
   return (
     <div className="min-h-screen bg-surface selection:bg-secondary selection:text-primary pb-24 sm:pb-20">
       <TopBanner onEnroll={openEnroll} />
+      <Navbar onEnroll={openEnroll} />
       <main>
         <Hero onEnroll={openEnroll} onDownloadBrochure={openBrochure} />
         <Suspense fallback={<div className="h-96 flex items-center justify-center text-outline">Loading...</div>}>
-          <VideoSection />
-          <Countdown />
+          <BrochureSlideshow onEnroll={openEnroll} />
+          <Blueprint />
           <Learn />
-          <Outcomes />
-          <Audience />
+          <Roadmap />
           <Curriculum />
-          <Tools />
+          <AgenticAI />
           <Instructor />
-          <Testimonials />
+          <Tools />
+          <Projects />
+          <CareerTrack />
+          <Communication />
+          <RolesAndInterviews />
+          <Outcomes />
+          <Fees onEnroll={openEnroll} />
           <FAQ />
           <FinalCTA onEnroll={openEnroll} />
         </Suspense>

@@ -1,50 +1,84 @@
 import { motion } from 'motion/react';
+import { Award, Briefcase, Code, Sparkles } from 'lucide-react';
 
 export default function Instructor() {
-  const teachers = [
+  const instructors = [
     {
-      role: "Senior AI Architect",
-      expertise: "Expertise in Generative AI, LLMs, RAG, and Prompt Engineering.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCvUgiHsvfaw-S5kbm2HeOFDMnYaWOXE9cRyWndMv7l93biB8N060ZRG-SyQHRde0XAdPDYOpiQPDNnFtl5zyVj3Eku9JOxAtCmEsU8ANtIn1xoE0U6HWZ3FKJMK1WA-RrmeeuPeYAnYg_ccOyU86b7H4eiREnHVNro6oxGmWTs4Nt8xY_tQa4Xmfhi9HaeChbgoxrHHT0VKkmZSL0YW6H6H-3qQ-7EcBElEK0eOgfyk2g8k1iQkJiTfDQdi5la0EvOtK-qAEbfOlw"
+      initials: "VP",
+      badge: "Founder & CTO",
+      name: "Venkata Prithvi Krishna Palle",
+      role: "Founder & CTO @ Vaulth AI",
+      tags: ["AI Products", "Engineering Leadership", "AI Systems"]
     },
     {
-      role: "Full-Stack AI Engineer",
-      expertise: "Specialist in AI-assisted development and production-grade AI products.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCO1m0qMU5Na94VgAMi00GcmH-ppXQSzmebzmN8zPssvbFEid-oMBRDwkgipE-uPIHmwAL5f5viif_4Jv6Mgwg2-t5ER7Co2ebR_GMLDTl1WNod3KwkYZS_bqzoZ3aw59f96RXq8Y-mN7XOg4RI1cJJ5ROfNaamcU-a7Z-yzSi_uslalNLkHLeeiQnOtJ7v77zX-dsqKTkrq3qIgLbDQzyOOSX87TwIUGM2nkSoYUMu-5Xj5d1nl8Ikg_ftMNSs4UUytTDklZSlKJQ"
+      initials: "M",
+      badge: "30+ Years",
+      name: "Murthy",
+      role: "Product Manager · 30+ years of experience in software",
+      tags: ["Product Management", "Software Delivery", "Industry Experience"]
+    },
+    {
+      initials: "VM",
+      badge: "DataOps & Python",
+      name: "Vamshi Maraboina",
+      role: "Senior Analyst · DataOps Automation Engineer · Python Developer",
+      tags: ["Python", "DataOps", "Automation"]
     }
   ];
 
   return (
     <motion.section 
+      id="instructors"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="py-20 sm:py-32 px-4 sm:px-8"
+      className="py-20 sm:py-32 px-4 sm:px-8 bg-surface-container-low"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 sm:mb-20">
-          <span className="text-primary font-bold uppercase text-[0.7rem] sm:text-[0.75rem] tracking-[0.2em] mb-4 block">
-            👨‍🏫 Your Teachers
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-primary font-bold uppercase text-[0.75rem] tracking-[0.2em] mb-3 block">
+            Learn From Practitioners
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-primary mb-6">Learn from IT professionals with 20+ years of experience</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-primary mb-4">
+            Meet Your Instructors
+          </h2>
+          <p className="text-base sm:text-lg text-on-surface-variant">
+            Engineers and product leaders who build, ship and run software for a living.
+          </p>
         </div>
-        
-        <div className="grid md:grid-cols-2 gap-8 sm:gap-12">
-          {teachers.map((teacher, i) => (
-            <div key={i} className="flex flex-col md:flex-row gap-6 sm:gap-8 items-center p-6 sm:p-8 rounded-3xl bg-surface-container-low border border-outline-variant/30">
-              <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl overflow-hidden shadow-xl flex-shrink-0">
-                <img 
-                  src={teacher.image} 
-                  alt={teacher.role} 
-                  className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
-                  loading="lazy"
-                />
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {instructors.map((inst, i) => (
+            <div 
+              key={i} 
+              className="p-8 rounded-3xl bg-white border border-outline-variant/30 shadow-soft hover:shadow-md transition-shadow flex flex-col"
+            >
+              <div className="flex items-center justify-between mb-6">
+                <div className="w-16 h-16 rounded-2xl bg-primary text-white flex items-center justify-center text-xl font-black shadow-sm">
+                  {inst.initials}
+                </div>
+                <span className="text-xs font-bold uppercase tracking-wider text-secondary bg-secondary/10 px-3 py-1 rounded-full border border-secondary/20">
+                  {inst.badge}
+                </span>
               </div>
-              <div className="text-center md:text-left">
-                <h3 className="text-xl sm:text-2xl font-bold text-primary mb-2">{teacher.role}</h3>
-                <p className="text-sm sm:text-base text-on-surface-variant leading-relaxed">{teacher.expertise}</p>
+
+              <h3 className="text-xl font-bold text-primary mb-2">
+                {inst.name}
+              </h3>
+              <p className="text-sm font-semibold text-on-surface-variant mb-6 leading-relaxed">
+                {inst.role}
+              </p>
+
+              <div className="flex flex-wrap gap-2 mt-auto">
+                {inst.tags.map((tag, j) => (
+                  <span 
+                    key={j} 
+                    className="text-xs font-semibold px-3 py-1 rounded-lg bg-surface-container text-primary border border-outline-variant/30"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
           ))}

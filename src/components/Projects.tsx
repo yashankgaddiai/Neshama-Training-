@@ -1,64 +1,204 @@
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Sparkles, ArrowUpRight } from 'lucide-react';
+
 export default function Projects() {
-  const projects = [
+  const [activeFilter, setActiveFilter] = useState<'all' | 'llm' | 'rag' | 'agents'>('all');
+
+  const filterTabs = [
+    { key: 'all', label: 'All 12' },
+    { key: 'llm', label: 'LLM Apps' },
+    { key: 'rag', label: 'RAG & Products' },
+    { key: 'agents', label: 'Agents & MCP' },
+  ];
+
+  const allProjects = [
     {
-      title: "Intelligent AI Chatbot",
-      description: "Enterprise-grade RAG chatbot with source citation and context awareness.",
-      stack: "LangChain, OpenAI, Pinecone",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAWZNfvTJXZfvFojx1bC_ao-lNOMDfecO5GHEO1unU90kW8TsH2hpCikmlRIchbrWLYexyqgDjw448Dz93xHVTl5Rb6qiaoUqojPuiDnqtEqJLysKS8UAadjpXr_mGotixgTvnG3UJjTkL7mW5KgwNOYor68ywEWlyAvEBkawQiLZQP8h-LPEnYVxjLQIbub1s21j7MWhx9mjw6N8Jn4omwCv40NBuRh-Iw32_vDWaeMZ1T8AHaJq1JJi8S8amZPF_xP6uI3J6Tv3c"
+      id: "01",
+      title: "AI Copilot",
+      tech: "LLM APIs + Streaming",
+      category: "llm",
+      categoryName: "LLM Apps",
+      description: "Multi-model assistant with configurable instructions and real-time streaming."
     },
     {
-      title: "Workflow Automation System",
-      description: "Multi-agent system that automates content creation and data analysis pipelines.",
-      stack: "Python, CrewAI, Make.com",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBGwVuzE1eTb9bFk30_J2p6G5sK2ecP4qQUqNwflItlraI1qmOSqJm0l_ukJE4NvejIzog6bLbz3b0FCKc6-DGgylEtBUrvmGpp_8aKaEMXyrpzaQOUDxfvo5I_s1cy3y7GKzv3-_p-odz4S3z1JgnWK5T5mk5rSvfbPxjawMdhL3ldMtTNFqzJAEW9vwecrYGqYc6HW4KkNWLdGaS9YJ4TaQznIcZzvqG9ClpZJZv8eSYzPCn3DACXDRsP61thsb6ZFdtrPbUq7I8"
+      id: "02",
+      title: "Prompt Lab",
+      tech: "Prompt Engineering",
+      category: "llm",
+      categoryName: "LLM Apps",
+      description: "Test, compare and evaluate model outputs across diverse prompts and architectures."
     },
     {
-      title: "AI-Powered Full-Stack Web App",
-      description: "A complete SaaS application with user auth, payments, and AI core features.",
-      stack: "Next.js, Stripe, Clerk",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCSPXX-twARGq1hHJ4K7wsNkx-RDLhxQt7LYlnHGWCETA9a3zCtOVsO-DZbkpvDJdvb-pYPjqIW0hYYziJ4kHCRWVAUg6aDiveESmKtBGZgKuCrAGrdxdGG1lKZ7q7dihe-DCwk0ku_CTJBP0NxfRTXZju-Crb3oZJ2lOhTVZo5KB46WewYxKoZwstO3ms0_G1uiYUMWuDepf8N_k44XNDh_-L6JYjr0trrqsIWgsrpFeb8Plc19YSrKaDoZez5jfMKdGLjL2v73ZU"
+      id: "03",
+      title: "AI Productivity Board",
+      tech: "MERN + AI",
+      category: "llm",
+      categoryName: "LLM Apps",
+      description: "AI-assisted tasks and productivity workflows embedded directly into a modern web stack."
     },
     {
-      title: "Scalable AI SaaS Product",
-      description: "Production deployment focusing on low latency and cost-optimized inference.",
-      stack: "Docker, AWS, HuggingFace",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCMg3I8mjWb1kgeuBrmrGGD5JKTpv5HEKzkI4mLlgsKu85xEnTogeogh-B8yXZ0l5bCQBX9aaGtYLjPQZSHnNfwoxnOKvfVS8l-Mev81lKWEdsxbWhk2Sn1q4ldjvw-J_E3azJrJYKie773cgPsvoA99gH6Uz3Wpz2DvXIR7vM2deov6-Xi0uQLcdZ3Vo9_SsJEMz09rnZus9g8lZWMYr9yksRsI_Sez938cszxGLcByKwzz7vr1CWUW6FkHcHgtOmSbISo7eUmXEs"
+      id: "04",
+      title: "Knowledge Vault",
+      tech: "Embeddings + RAG",
+      category: "rag",
+      categoryName: "RAG & Products",
+      description: "Chat with uploaded documents using grounded retrieval and vector semantic similarity."
+    },
+    {
+      id: "05",
+      title: "Business Knowledge Assistant",
+      tech: "Advanced RAG",
+      category: "rag",
+      categoryName: "RAG & Products",
+      description: "Answer domain-specific business questions using private corporate knowledge and reranking."
+    },
+    {
+      id: "06",
+      title: "AI Operations Workspace",
+      tech: "Python + React + DB",
+      category: "rag",
+      categoryName: "RAG & Products",
+      description: "Complete full-stack AI product with secure APIs, authentication, and state management."
+    },
+    {
+      id: "07",
+      title: "ResearchPilot",
+      tech: "Agents + Tools",
+      category: "agents",
+      categoryName: "Agents & MCP",
+      description: "Autonomous research agent with step-by-step planning and dynamic tool execution."
+    },
+    {
+      id: "08",
+      title: "Workflow Agent",
+      tech: "Agents + APIs",
+      category: "agents",
+      categoryName: "Agents & MCP",
+      description: "Execute multi-step operational workflows and coordinate automated business tasks."
+    },
+    {
+      id: "09",
+      title: "DevOps Copilot",
+      tech: "Coding Agents",
+      category: "agents",
+      categoryName: "Agents & MCP",
+      description: "Repository-aware coding, testing and review workflow leveraging state-of-the-art agents."
+    },
+    {
+      id: "10",
+      title: "MCP Command Center",
+      tech: "MCP + Agents",
+      category: "agents",
+      categoryName: "Agents & MCP",
+      description: "Connect AI agents to external tools, databases, and systems via Model Context Protocol."
+    },
+    {
+      id: "11",
+      title: "Multimodal AI Studio",
+      tech: "Vision + Audio + LLM",
+      category: "llm",
+      categoryName: "LLM Apps",
+      description: "Combine text, image and audio AI capabilities into a unified interactive application."
+    },
+    {
+      id: "12",
+      title: "Autonomous Business Agent",
+      tech: "RAG + Multi-Agent",
+      category: "agents",
+      categoryName: "Agents & MCP",
+      description: "Business assistant with memory, tool selection, supervisor workflows and automated verification."
     }
   ];
 
+  const filtered = activeFilter === 'all' 
+    ? allProjects 
+    : allProjects.filter(p => p.category === activeFilter);
+
   return (
-    <section className="py-32 px-8 bg-surface-container-low" id="projects">
+    <motion.section 
+      id="projects"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="py-20 sm:py-32 px-4 sm:px-8 bg-surface"
+    >
       <div className="max-w-7xl mx-auto">
-        <div className="mb-20 text-center">
-          <span className="text-primary font-bold uppercase text-[0.75rem] tracking-[0.2em] mb-4 block">
-            Proof of Concept
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <span className="text-primary font-bold uppercase text-[0.75rem] tracking-[0.2em] mb-3 block">
+            AI Is the Core Product Layer
           </span>
-          <h2 className="text-4xl font-bold tracking-tight text-primary">
-            Real Projects. Not Toy Examples.
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-primary mb-4">
+            AI-Native Project Portfolio
           </h2>
+          <p className="text-base sm:text-lg text-on-surface-variant">
+            From model APIs and grounded retrieval to agentic workflows and production systems.
+          </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, i) => (
-            <div key={i} className="group bg-white rounded-lg overflow-hidden shadow-soft hover:shadow-xl transition-all duration-500">
-              <div className="aspect-video relative overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-              <div className="p-8">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-on-surface-variant mb-4">{project.description}</p>
-                <div className="flex gap-4">
-                  <span className="text-xs font-black uppercase text-primary">Stack: {project.stack}</span>
+
+        {/* Filter Tabs */}
+        <div className="flex flex-wrap justify-center gap-2.5 sm:gap-4 mb-12">
+          {filterTabs.map((tab) => {
+            const isActive = activeFilter === tab.key;
+            return (
+              <button
+                key={tab.key}
+                onClick={() => setActiveFilter(tab.key as any)}
+                className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all border ${
+                  isActive
+                    ? 'bg-primary text-white border-primary shadow-md'
+                    : 'bg-surface-container-low text-on-surface-variant border-outline-variant/30 hover:border-outline hover:text-primary'
+                }`}
+              >
+                {tab.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Projects Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <AnimatePresence mode="popLayout">
+            {filtered.map((proj) => (
+              <motion.div
+                key={proj.id}
+                layout
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.25 }}
+                className="p-7 rounded-3xl bg-surface-container-low border border-outline-variant/30 hover:shadow-soft transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-4">
+                    <span className="text-xs font-black text-primary/40 uppercase tracking-widest">
+                      Project {proj.id}
+                    </span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-secondary bg-secondary/10 px-2.5 py-1 rounded-full border border-secondary/20">
+                      {proj.categoryName}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl font-bold text-primary mb-2">
+                    {proj.title}
+                  </h3>
+                  
+                  <div className="mb-4">
+                    <span className="text-xs font-semibold text-primary/70 bg-white px-2.5 py-1 rounded-md border border-outline-variant/30 inline-block">
+                      {proj.tech}
+                    </span>
+                  </div>
+
+                  <p className="text-sm text-on-surface-variant leading-relaxed">
+                    {proj.description}
+                  </p>
                 </div>
-              </div>
-            </div>
-          ))}
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
