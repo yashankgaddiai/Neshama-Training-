@@ -5,10 +5,12 @@ export default function Instructor() {
   const instructors = [
     {
       initials: "VP",
+      image: "/instructors/prithvi.jpg",
       badge: "Founder & CTO",
       name: "Venkata Prithvi Krishna Palle",
       role: "Founder & CTO @ Vaulth AI",
-      tags: ["AI Products", "Engineering Leadership", "AI Systems"]
+      tags: ["AI Products", "Engineering Leadership", "AI Systems"],
+      linkedin: "https://www.linkedin.com/in/venkata-palle"
     },
     {
       initials: "M",
@@ -52,13 +54,26 @@ export default function Instructor() {
           {instructors.map((inst, i) => (
             <div 
               key={i} 
-              className="p-8 rounded-3xl bg-white border border-outline-variant/30 shadow-soft hover:shadow-md transition-shadow flex flex-col"
+              className="p-8 rounded-3xl bg-white border border-outline-variant/30 shadow-soft hover:shadow-md transition-shadow flex flex-col group"
             >
               <div className="flex items-center justify-between mb-6">
-                <div className="w-16 h-16 rounded-2xl bg-primary text-white flex items-center justify-center text-xl font-black shadow-sm">
-                  {inst.initials}
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-secondary bg-secondary/10 px-3 py-1 rounded-full border border-secondary/20">
+                {inst.image ? (
+                  <div className="relative">
+                    <img 
+                      src={inst.image} 
+                      alt={inst.name} 
+                      className="w-18 h-18 sm:w-20 sm:h-20 rounded-2xl object-cover object-top border-2 border-primary/20 shadow-md group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-emerald-500 border-2 border-white flex items-center justify-center text-white text-[10px] font-bold shadow-sm">
+                      ✓
+                    </div>
+                  </div>
+                ) : (
+                  <div className="w-18 h-18 sm:w-20 sm:h-20 rounded-2xl bg-primary text-white flex items-center justify-center text-xl font-black shadow-sm">
+                    {inst.initials}
+                  </div>
+                )}
+                <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200/70 shadow-2xs">
                   {inst.badge}
                 </span>
               </div>

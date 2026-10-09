@@ -1,6 +1,10 @@
 import BrochureSlideshow from './BrochureSlideshow';
 
-export default function VideoSection({ onEnroll }: { onEnroll?: () => void }) {
+interface VideoSectionProps {
+  onEnroll?: () => void;
+}
+
+export default function VideoSection({ onEnroll }: VideoSectionProps) {
   return <BrochureSlideshow onEnroll={onEnroll} />;
 }
 

@@ -7,7 +7,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Info */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-black tracking-tight text-white">NESHAMA AI ENGINEERING</h3>
+            <div className="flex items-center gap-3">
+              <img 
+                src="/logo.png" 
+                alt="Neshama Training Logo" 
+                className="w-10 h-10 object-contain brightness-110 drop-shadow" 
+              />
+              <h3 className="text-2xl font-black tracking-tight text-white">Neshama Training</h3>
+            </div>
             <p className="text-white/70 text-sm leading-relaxed">
               Building industry-ready AI engineers who take ownership and deliver real outcomes.
             </p>

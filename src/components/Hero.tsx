@@ -52,11 +52,6 @@ export default function Hero({ onEnroll, onDownloadBrochure }: HeroProps) {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center text-center max-w-4xl mx-auto mb-12 sm:mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/15 text-primary text-xs sm:text-sm font-bold uppercase tracking-wider mb-6 border border-secondary/30">
-            <Sparkles size={14} className="text-secondary" />
-            Full-Stack AI Engineering · 3-Month Program · Live + Recorded
-          </span>
-
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] text-primary mb-6 tracking-tight">
             Become a Full-Stack AI Engineer in 12 Weeks
           </h1>

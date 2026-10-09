@@ -18,9 +18,16 @@ export default function Navbar({ onEnroll }: { onEnroll?: () => void }) {
   return (
     <nav className="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 flex justify-between items-center h-18">
-        <a href="#" className="flex flex-col text-left">
-          <span className="text-lg sm:text-xl font-black tracking-tight text-primary">NESHAMA AI ENGINEERING</span>
-          <span className="text-[10px] font-semibold text-secondary uppercase tracking-widest -mt-0.5">Full-Stack AI Engineering Program</span>
+        <a href="#" className="flex items-center gap-3 text-left group">
+          <img 
+            src="/logo.png" 
+            alt="Neshama Training Logo" 
+            className="w-10 h-10 sm:w-11 sm:h-11 object-contain flex-shrink-0 transition-transform duration-300 group-hover:scale-105" 
+          />
+          <div className="flex flex-col">
+            <span className="text-lg sm:text-xl font-black tracking-tight text-primary leading-tight">Neshama Training</span>
+            <span className="text-[11px] sm:text-xs font-black text-blue-600 tracking-tight mt-0.5">Delivering Excellence in Every Training Experience</span>
+          </div>
         </a>
 
         <div className="hidden lg:flex gap-7 items-center">
