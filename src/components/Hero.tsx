@@ -87,7 +87,7 @@ export default function Hero({ onEnroll, onDownloadBrochure }: HeroProps) {
             <motion.a
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              href="/enroll/"
+              href="/enroll"
               className="w-full sm:w-auto bg-secondary text-primary px-8 py-4 rounded-full font-bold text-base sm:text-lg flex items-center justify-center gap-2 hover:shadow-xl transition-all"
             >
               Enroll Now

@@ -33,7 +33,7 @@ export default function FinalCTA({ onEnroll }: { onEnroll: () => void }) {
             <motion.a
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              href="/enroll/"
+              href="/enroll"
               className="w-full sm:w-auto text-center bg-white text-primary px-8 py-4 rounded-full font-bold text-base hover:shadow-xl transition-all"
             >
               Enroll Now
