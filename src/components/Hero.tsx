@@ -1,13 +1,13 @@
 import { useState, FormEvent } from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Phone, CheckCircle, Sparkles, Code, Cpu, Briefcase, Calendar } from 'lucide-react';
 
 interface HeroProps {
   onEnroll: () => void;
+  onEnrollNow: () => void;
   onDownloadBrochure: () => void;
 }
 
-export default function Hero({ onEnroll, onDownloadBrochure }: HeroProps) {
+export default function Hero({ onEnroll, onEnrollNow, onDownloadBrochure }: HeroProps) {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -62,16 +62,15 @@ export default function Hero({ onEnroll, onDownloadBrochure }: HeroProps) {
 
           <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-8">
             {[
-              { icon: <Code size={14} />, text: "Python + MERN + GenAI" },
-              { icon: <Calendar size={14} />, text: "Live + Recorded" },
-              { icon: <Cpu size={14} />, text: "Real-world AI projects + Agentic systems" },
-              { icon: <Briefcase size={14} />, text: "Career preparation from Week 1" },
+              { text: "Python + MERN + GenAI" },
+              { text: "Live + Recorded" },
+              { text: "Real-world AI projects + Agentic systems" },
+              { text: "Career preparation from Week 1" },
             ].map((pill, i) => (
               <span 
                 key={i}
                 className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-container text-primary text-xs sm:text-sm font-semibold border border-outline-variant/40"
               >
-                <span className="text-secondary">{pill.icon}</span>
                 {pill.text}
               </span>
             ))}
@@ -84,7 +83,15 @@ export default function Hero({ onEnroll, onDownloadBrochure }: HeroProps) {
               onClick={onEnroll}
               className="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-full font-bold text-base sm:text-lg flex items-center justify-center gap-2 hover:shadow-xl transition-all"
             >
-              Book a Free Counselling Call →
+              Book a Free Counselling Call
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={onEnrollNow}
+              className="w-full sm:w-auto bg-secondary text-primary px-8 py-4 rounded-full font-bold text-base sm:text-lg flex items-center justify-center gap-2 hover:shadow-xl transition-all"
+            >
+              Enroll Now
             </motion.button>
             <motion.a 
               whileHover={{ scale: 1.02 }}
@@ -92,7 +99,7 @@ export default function Hero({ onEnroll, onDownloadBrochure }: HeroProps) {
               href="#brochure"
               className="w-full sm:w-auto border-2 border-secondary bg-secondary/10 px-7 py-4 rounded-full font-bold text-base text-primary hover:bg-secondary/20 transition-all flex items-center justify-center gap-2"
             >
-              <Sparkles size={18} className="text-secondary" />
+              
               View Brochure Slideshow
             </motion.a>
             <motion.button 
@@ -122,7 +129,7 @@ export default function Hero({ onEnroll, onDownloadBrochure }: HeroProps) {
               href="tel:+918143459888" 
               className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-primary bg-white px-4 py-2 rounded-full border border-outline-variant/30 hover:border-secondary transition-colors"
             >
-              <Phone size={14} className="text-secondary" />
+              
               +91 81434 59888
             </a>
           </div>
@@ -169,13 +176,13 @@ export default function Hero({ onEnroll, onDownloadBrochure }: HeroProps) {
                 type="submit"
                 className="w-full bg-primary text-white py-3.5 rounded-xl font-bold text-sm sm:text-base hover:opacity-95 transition-all flex items-center justify-center gap-2 shadow-sm"
               >
-                Request a callback →
+                Request a callback
               </button>
             </div>
           </form>
           {submitted && (
             <p className="mt-3 text-xs text-center text-primary font-semibold flex items-center justify-center gap-1">
-              <CheckCircle size={14} className="text-secondary" /> Opening WhatsApp chat with our counselling team...
+               Opening WhatsApp chat with our counselling team...
             </p>
           )}
         </motion.div>

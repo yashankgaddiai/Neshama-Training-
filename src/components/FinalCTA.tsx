@@ -1,7 +1,6 @@
 import { motion } from 'motion/react';
-import { Phone, MessageCircle, ArrowRight } from 'lucide-react';
 
-export default function FinalCTA({ onEnroll }: { onEnroll: () => void }) {
+export default function FinalCTA({ onEnroll, onEnrollNow }: { onEnroll: () => void; onEnrollNow: () => void }) {
   return (
     <motion.section 
       initial={{ opacity: 0, y: 20 }}
@@ -13,7 +12,7 @@ export default function FinalCTA({ onEnroll }: { onEnroll: () => void }) {
       <div className="max-w-5xl mx-auto rounded-3xl bg-primary text-white p-10 sm:p-16 md:p-20 text-center relative overflow-hidden shadow-2xl">
         <div className="relative z-10">
           <span className="text-secondary font-bold uppercase text-[0.75rem] tracking-[0.2em] mb-4 block">
-            🚀 Ready to Begin?
+            Ready to Begin?
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 tracking-tight">
             Start Your AI Engineering Journey
@@ -29,7 +28,15 @@ export default function FinalCTA({ onEnroll }: { onEnroll: () => void }) {
               onClick={onEnroll}
               className="w-full sm:w-auto bg-secondary text-primary px-8 py-4 rounded-full font-bold text-base hover:shadow-xl transition-all"
             >
-              Book Free Counselling →
+              Book Free Counselling
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={onEnrollNow}
+              className="w-full sm:w-auto bg-white text-primary px-8 py-4 rounded-full font-bold text-base hover:shadow-xl transition-all"
+            >
+              Enroll Now
             </motion.button>
             <motion.a 
               whileHover={{ scale: 1.03 }}
@@ -39,7 +46,7 @@ export default function FinalCTA({ onEnroll }: { onEnroll: () => void }) {
               rel="noopener noreferrer"
               className="w-full sm:w-auto border border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-full font-bold text-base transition-all flex items-center justify-center gap-2"
             >
-              <MessageCircle size={18} />
+              
               Chat on WhatsApp
             </motion.a>
           </div>

@@ -1,24 +1,19 @@
-import { Hammer, Rocket, Layout, Briefcase } from 'lucide-react';
 
 export default function Solution() {
   const features = [
     {
-      icon: <Hammer size={20} />,
       title: "Build Real-World Apps",
       description: "Stop coding 'To-Do' lists. Build complex, RAG-enabled systems that solve business problems."
     },
     {
-      icon: <Rocket size={20} />,
       title: "Deploy Production-Ready",
       description: "Learn the CI/CD pipelines used by top tech firms to ship robust AI products at scale."
     },
     {
-      icon: <Layout size={20} />,
       title: "Master 20+ Tools",
       description: "From LangChain and Vercel to Pinecone and Cursor. The modern engineer's toolkit."
     },
     {
-      icon: <Briefcase size={20} />,
       title: "Get Hired",
       description: "A portfolio that proves your expertise with live, interactive demos for hiring managers."
     }
@@ -46,9 +41,6 @@ export default function Solution() {
             <div className="space-y-8">
               {features.map((feature, i) => (
                 <div key={i} className="flex gap-6">
-                  <div className="w-10 h-10 flex-shrink-0 rounded-full bg-secondary text-primary flex items-center justify-center">
-                    {feature.icon}
-                  </div>
                   <div>
                     <h4 className="text-lg font-bold mb-2">{feature.title}</h4>
                     <p className="text-white/70">{feature.description}</p>

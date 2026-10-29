@@ -1,10 +1,8 @@
 import { motion } from 'motion/react';
-import { Compass, Film, Zap, Briefcase, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export default function Blueprint() {
   const cards = [
     {
-      icon: <Compass className="text-secondary" size={24} />,
       title: "Program Model",
       items: [
         "3 months / 12 weeks",
@@ -14,7 +12,6 @@ export default function Blueprint() {
       ]
     },
     {
-      icon: <Film className="text-secondary" size={24} />,
       title: "Recorded Foundations",
       items: [
         "Python fundamentals",
@@ -24,7 +21,6 @@ export default function Blueprint() {
       ]
     },
     {
-      icon: <Zap className="text-secondary" size={24} />,
       title: "Live AI Engineering",
       items: [
         "LLMs + Prompt Engineering",
@@ -34,7 +30,6 @@ export default function Blueprint() {
       ]
     },
     {
-      icon: <Briefcase className="text-secondary" size={24} />,
       title: "Career from Week 1",
       items: [
         "LinkedIn + GitHub + Portfolio",
@@ -73,14 +68,11 @@ export default function Blueprint() {
               key={i} 
               className="p-6 sm:p-7 rounded-2xl bg-white border border-outline-variant/30 shadow-soft hover:shadow-md transition-shadow flex flex-col"
             >
-              <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center mb-5">
-                {card.icon}
-              </div>
               <h3 className="text-xl font-bold text-primary mb-4">{card.title}</h3>
               <ul className="space-y-2.5 mt-auto">
                 {card.items.map((item, j) => (
                   <li key={j} className="flex items-start gap-2.5 text-sm text-on-surface-variant font-medium">
-                    <CheckCircle2 size={16} className="text-secondary mt-0.5 flex-shrink-0" />
+                    
                     <span>{item}</span>
                   </li>
                 ))}
@@ -91,7 +83,7 @@ export default function Blueprint() {
 
         <div className="p-6 sm:p-8 rounded-2xl bg-white border border-outline-variant/30 shadow-soft max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <span className="text-sm sm:text-base font-bold text-primary">How it works →</span>
+            <span className="text-sm sm:text-base font-bold text-primary">How it works</span>
             <p className="text-sm text-on-surface-variant">
               Live time focuses on AI Engineering, product building and agentic systems. Python and MERN foundations remain available as recorded learning.
             </p>
@@ -100,7 +92,7 @@ export default function Blueprint() {
             href="#curriculum"
             className="text-xs font-bold uppercase tracking-wider text-primary hover:text-secondary whitespace-nowrap flex items-center gap-1 transition-colors"
           >
-            View curriculum <ArrowRight size={14} />
+            View curriculum 
           </a>
         </div>
       </div>

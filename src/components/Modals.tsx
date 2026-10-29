@@ -1,4 +1,3 @@
-import { X, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import React, { useEffect, useState } from 'react';
 
@@ -45,15 +44,15 @@ export default function Modal({ isOpen, onClose, title, type }: ModalProps) {
             <div className="p-4 sm:p-8">
               <div className="flex justify-between items-center mb-4 sm:mb-6">
                 <h3 className="text-xl sm:text-2xl font-bold text-primary">{title}</h3>
-                <button onClick={onClose} className="text-outline hover:text-primary transition-colors">
-                  <X size={24} />
+                <button onClick={onClose} className="text-outline hover:text-primary transition-colors text-sm font-semibold">
+                  Close
                 </button>
               </div>
               
               <div className="w-full h-[550px] relative">
                 {isLoading && (
                   <div className="absolute inset-0 flex flex-col items-center justify-center bg-white z-10">
-                    <Loader2 className="w-10 h-10 text-primary animate-spin mb-4" />
+                    
                     <p className="text-sm font-medium text-outline">Loading secure form...</p>
                   </div>
                 )}

@@ -1,5 +1,4 @@
 import { motion } from 'motion/react';
-import { CheckCircle2, TrendingUp } from 'lucide-react';
 
 export default function CareerTrack() {
   const timeline = [
@@ -103,7 +102,7 @@ export default function CareerTrack() {
               <ul className="space-y-2 mt-auto">
                 {item.items.map((point, j) => (
                   <li key={j} className="flex items-start gap-2 text-xs text-on-surface-variant font-medium">
-                    <CheckCircle2 size={14} className="text-secondary mt-0.5 shrink-0" />
+                    
                     <span>{point}</span>
                   </li>
                 ))}

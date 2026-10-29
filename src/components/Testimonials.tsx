@@ -1,4 +1,3 @@
-import { Star } from 'lucide-react';
 
 export default function Testimonials() {
   const testimonials = [
@@ -27,7 +26,7 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <span className="text-primary font-bold uppercase text-[0.75rem] tracking-[0.2em] mb-4 block">
-            💬 Student Stories
+            Student Stories
           </span>
           <h2 className="text-4xl font-bold tracking-tight text-primary">Success Stories</h2>
         </div>
@@ -42,11 +41,6 @@ export default function Testimonials() {
                   referrerPolicy="no-referrer"
                   loading="lazy"
                 />
-              </div>
-              <div className="flex text-secondary mb-4">
-                {[...Array(5)].map((_, j) => (
-                  <Star key={j} size={16} fill="currentColor" />
-                ))}
               </div>
               <h4 className="text-xl font-bold text-primary mb-1">{testimonial.name}</h4>
               <p className="text-xs font-bold text-outline uppercase tracking-widest mb-4">{testimonial.location}</p>

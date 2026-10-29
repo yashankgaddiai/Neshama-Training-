@@ -1,5 +1,4 @@
 import { motion } from 'motion/react';
-import { MessageSquare, CheckCircle2, Sparkles } from 'lucide-react';
 
 export default function Communication() {
   const practices = [

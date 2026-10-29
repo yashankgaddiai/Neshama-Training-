@@ -1,41 +1,33 @@
 import { motion } from 'motion/react';
-import { Cpu, Terminal, Layers, Database, Code, Cloud, HardDrive } from 'lucide-react';
 
 export default function Tools() {
   const categories = [
     {
       title: "AI Models & APIs",
-      icon: <Cpu className="text-secondary" size={18} />,
       tools: ["OpenAI", "Claude / Anthropic", "Gemini", "Grok", "OpenRouter"]
     },
     {
       title: "Coding Agents",
-      icon: <Terminal className="text-secondary" size={18} />,
       tools: ["Codex", "Claude Code", "Hermes Agent", "Cursor", "GitHub Copilot"]
     },
     {
       title: "AI Frameworks",
-      icon: <Layers className="text-secondary" size={18} />,
       tools: ["LangChain", "LangGraph", "LlamaIndex", "Hugging Face"]
     },
     {
       title: "RAG & Vector",
-      icon: <Database className="text-secondary" size={18} />,
       tools: ["Pinecone", "FAISS", "ChromaDB", "Embeddings"]
     },
     {
       title: "Full-Stack",
-      icon: <Code className="text-secondary" size={18} />,
       tools: ["Python", "FastAPI", "JavaScript", "React", "Node.js", "Express", "MongoDB", "SQL"]
     },
     {
       title: "Ship & Deploy",
-      icon: <Cloud className="text-secondary" size={18} />,
       tools: ["Git", "GitHub", "Postman", "Swagger / OpenAPI", "Docker", "Vercel", "AWS"]
     },
     {
       title: "Local AI",
-      icon: <HardDrive className="text-secondary" size={18} />,
       tools: ["Ollama", "Open-source models", "Local inference"]
     }
   ];
@@ -69,9 +61,6 @@ export default function Tools() {
               className="p-6 rounded-3xl bg-white border border-outline-variant/30 shadow-soft flex flex-col"
             >
               <div className="flex items-center gap-2.5 mb-4 pb-3 border-b border-outline-variant/20">
-                <div className="p-2 rounded-xl bg-surface-container">
-                  {cat.icon}
-                </div>
                 <h3 className="font-bold text-primary text-base">{cat.title}</h3>
               </div>
               <div className="flex flex-wrap gap-2 mt-auto">

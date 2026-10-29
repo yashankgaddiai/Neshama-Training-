@@ -1,5 +1,4 @@
 import { motion } from 'motion/react';
-import { Award, Briefcase, Code, Sparkles } from 'lucide-react';
 
 export default function Instructor() {
   const instructors = [
@@ -64,9 +63,6 @@ export default function Instructor() {
                       alt={inst.name} 
                       className="w-18 h-18 sm:w-20 sm:h-20 rounded-2xl object-cover object-top border-2 border-primary/20 shadow-md group-hover:scale-105 transition-transform duration-300"
                     />
-                    <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-emerald-500 border-2 border-white flex items-center justify-center text-white text-[10px] font-bold shadow-sm">
-                      ✓
-                    </div>
                   </div>
                 ) : (
                   <div className="w-18 h-18 sm:w-20 sm:h-20 rounded-2xl bg-primary text-white flex items-center justify-center text-xl font-black shadow-sm">

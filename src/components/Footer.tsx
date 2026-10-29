@@ -1,4 +1,3 @@
-import { Mail, MapPin, Phone, MessageCircle, Globe } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -26,21 +25,21 @@ export default function Footer() {
                 className="w-9 h-9 rounded-full bg-white/10 hover:bg-secondary hover:text-primary transition-colors flex items-center justify-center text-white"
                 aria-label="WhatsApp"
               >
-                <MessageCircle size={18} />
+                
               </a>
               <a 
                 href="mailto:neshamatraining.info@gmail.com" 
                 className="w-9 h-9 rounded-full bg-white/10 hover:bg-secondary hover:text-primary transition-colors flex items-center justify-center text-white"
                 aria-label="Email"
               >
-                <Mail size={18} />
+                
               </a>
               <a 
                 href="tel:+918143459888" 
                 className="w-9 h-9 rounded-full bg-white/10 hover:bg-secondary hover:text-primary transition-colors flex items-center justify-center text-white"
                 aria-label="Phone"
               >
-                <Phone size={18} />
+                
               </a>
             </div>
           </div>
@@ -72,23 +71,23 @@ export default function Footer() {
             <h4 className="font-bold text-base mb-4 text-white">Contact</h4>
             <ul className="space-y-3.5 text-sm text-white/70">
               <li className="flex items-center gap-2.5">
-                <Phone size={15} className="text-secondary shrink-0" />
+                
                 <a href="tel:+918143459888" className="hover:text-secondary transition-colors">+91 81434 59888</a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone size={15} className="text-secondary shrink-0" />
+                
                 <a href="tel:+919550143619" className="hover:text-secondary transition-colors">+91 95501 43619</a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Mail size={15} className="text-secondary shrink-0" />
+                
                 <a href="mailto:neshamatraining.info@gmail.com" className="hover:text-secondary transition-colors">neshamatraining.info@gmail.com</a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Globe size={15} className="text-secondary shrink-0" />
+                
                 <span className="hover:text-secondary transition-colors">www.neshamatraining.com</span>
               </li>
               <li className="flex items-start gap-2.5 pt-1">
-                <MapPin size={15} className="text-secondary mt-1 shrink-0" />
+                
                 <span className="leading-relaxed text-xs text-white/60">
                   Neshama Training and Services Private Limited<br />
                   House No: 7-126/49, Plot No: 49, Ground Floor<br />

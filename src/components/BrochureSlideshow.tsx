@@ -1,34 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback, TouchEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  ChevronLeft, 
-  ChevronRight, 
-  Maximize2, 
-  Minimize2, 
-  Play, 
-  Pause, 
-  Download, 
-  ExternalLink, 
-  ZoomIn, 
-  ZoomOut, 
-  RotateCcw,
-  Sparkles,
-  Layers,
-  ArrowRight,
-  Phone,
-  Globe,
-  CheckCircle2,
-  Cpu,
-  Code,
-  FolderGit2,
-  Terminal,
-  Database,
-  Briefcase,
-  Users,
-  Compass,
-  Award,
-  BookOpen
-} from 'lucide-react';
 
 interface BrochureSlideshowProps {
   onEnroll?: () => void;
@@ -259,7 +230,7 @@ function SlideRenderer({ slideIndex }: { slideIndex: number }) {
               </div>
             </div>
             <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-cyan-400 via-blue-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
-              <Sparkles size={24} className="text-white" />
+              
             </div>
           </div>
 
@@ -325,7 +296,7 @@ function SlideRenderer({ slideIndex }: { slideIndex: number }) {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5 flex-1">
             <div className="bg-slate-50 border border-slate-200/90 rounded-2xl p-4 sm:p-5 flex flex-col">
               <div className="flex items-center gap-2.5 text-blue-700 font-bold text-sm sm:text-base mb-3">
-                <Compass size={18} />
+                
                 <span>Program Model</span>
               </div>
               <ul className="space-y-1.5 text-xs sm:text-sm text-slate-700">
@@ -338,7 +309,7 @@ function SlideRenderer({ slideIndex }: { slideIndex: number }) {
 
             <div className="bg-slate-50 border border-slate-200/90 rounded-2xl p-4 sm:p-5 flex flex-col">
               <div className="flex items-center gap-2.5 text-blue-700 font-bold text-sm sm:text-base mb-3">
-                <Code size={18} />
+                
                 <span>Recorded Foundations</span>
               </div>
               <ul className="space-y-1.5 text-xs sm:text-sm text-slate-700">
@@ -351,7 +322,7 @@ function SlideRenderer({ slideIndex }: { slideIndex: number }) {
 
             <div className="bg-slate-50 border border-slate-200/90 rounded-2xl p-4 sm:p-5 flex flex-col">
               <div className="flex items-center gap-2.5 text-blue-700 font-bold text-sm sm:text-base mb-3">
-                <Cpu size={18} />
+                
                 <span>Live AI Engineering</span>
               </div>
               <ul className="space-y-1.5 text-xs sm:text-sm text-slate-700">
@@ -364,7 +335,7 @@ function SlideRenderer({ slideIndex }: { slideIndex: number }) {
 
             <div className="bg-slate-50 border border-slate-200/90 rounded-2xl p-4 sm:p-5 flex flex-col">
               <div className="flex items-center gap-2.5 text-blue-700 font-bold text-sm sm:text-base mb-3">
-                <Briefcase size={18} />
+                
                 <span>Career from Week 1</span>
               </div>
               <ul className="space-y-1.5 text-xs sm:text-sm text-slate-700">
@@ -1395,7 +1366,7 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
         {/* Header Info */}
         <div className="text-center max-w-3xl mx-auto mb-8">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs sm:text-sm font-bold uppercase tracking-wider mb-4">
-            <Sparkles size={14} />
+            
             Official Program Brochure · 20 Pages
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-primary tracking-tight mb-4">
@@ -1455,7 +1426,6 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
                   : 'bg-surface-container-high text-primary hover:bg-outline-variant/20'
               }`}
             >
-              {isPlaying ? <Pause size={14} /> : <Play size={14} />}
               <span className="hidden sm:inline">{isPlaying ? 'Pause' : 'Auto-Play'}</span>
             </button>
 
@@ -1465,7 +1435,7 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
               className="p-2 rounded-xl bg-surface-container-high text-primary hover:bg-outline-variant/20 transition-colors"
               title="Fullscreen view"
             >
-              <Maximize2 size={16} />
+              
             </button>
 
             <a
@@ -1474,7 +1444,7 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-primary text-white text-xs font-bold hover:shadow-md transition-all"
             >
-              <Download size={14} />
+              
               <span>Download PDF</span>
             </a>
           </div>
@@ -1513,7 +1483,7 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
             aria-label="Previous Slide"
             className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 p-2.5 sm:p-3.5 rounded-full bg-black/60 hover:bg-black/85 text-white backdrop-blur-md transition-all shadow-lg hover:scale-110 active:scale-95 z-20"
           >
-            <ChevronLeft size={24} className="sm:w-7 sm:h-7" />
+            
           </button>
 
           <button
@@ -1521,7 +1491,7 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
             aria-label="Next Slide"
             className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 p-2.5 sm:p-3.5 rounded-full bg-black/60 hover:bg-black/85 text-white backdrop-blur-md transition-all shadow-lg hover:scale-110 active:scale-95 z-20"
           >
-            <ChevronRight size={24} className="sm:w-7 sm:h-7" />
+            
           </button>
 
           {/* Bottom Slide Overlay Controls */}
@@ -1540,7 +1510,7 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
                 className="p-1 text-white hover:text-cyan-300 disabled:opacity-30 transition-colors"
                 title="Zoom Out"
               >
-                <ZoomOut size={15} />
+                
               </button>
               <span className="text-[11px] font-mono text-white/90 px-1">
                 {Math.round(zoomLevel * 100)}%
@@ -1552,7 +1522,7 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
                 className="p-1 text-white hover:text-cyan-300 disabled:opacity-30 transition-colors"
                 title="Zoom In"
               >
-                <ZoomIn size={15} />
+                
               </button>
               {zoomLevel > 1 && (
                 <button 
@@ -1561,7 +1531,7 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
                   className="p-1 text-white hover:text-cyan-300 transition-colors"
                   title="Reset Zoom"
                 >
-                  <RotateCcw size={13} />
+                  
                 </button>
               )}
             </div>
@@ -1580,7 +1550,7 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
         <div className="mt-6">
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-bold text-on-surface-variant flex items-center gap-1.5">
-              <Layers size={14} />
+              
               All 20 Brochure Pages (Click any page to jump)
             </span>
             <div className="flex items-center gap-2 text-xs font-medium text-on-surface-variant">
@@ -1636,7 +1606,7 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
         <div className="mt-8 p-6 rounded-2xl bg-surface border border-outline-variant/40 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-soft">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary flex-shrink-0">
-              <Download size={24} />
+              
             </div>
             <div>
               <h4 className="font-bold text-primary text-base">
@@ -1654,7 +1624,7 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
               rel="noopener noreferrer"
               className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-surface-container-high hover:bg-outline-variant/30 text-primary font-bold text-xs sm:text-sm transition-colors border border-outline-variant/40"
             >
-              <Download size={16} />
+              
               <span>Direct PDF</span>
             </a>
             <a
@@ -1663,7 +1633,7 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
               rel="noopener noreferrer"
               className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-surface-container-high hover:bg-outline-variant/30 text-primary font-bold text-xs sm:text-sm transition-colors border border-outline-variant/40"
             >
-              <ExternalLink size={16} />
+              
               <span>Drive Viewer</span>
             </a>
             {onEnroll && (
@@ -1672,7 +1642,7 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
                 className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-bold text-xs sm:text-sm hover:shadow-md transition-all"
               >
                 <span>Apply Now</span>
-                <ArrowRight size={14} />
+                
               </button>
             )}
           </div>
@@ -1713,7 +1683,6 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
                       : 'bg-white/10 text-white hover:bg-white/20'
                   }`}
                 >
-                  {isPlaying ? <Pause size={14} /> : <Play size={14} />}
                   <span>{isPlaying ? 'Pause' : 'Auto-Play'}</span>
                 </button>
                 <button
@@ -1722,7 +1691,7 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
                   aria-label="Exit Fullscreen"
                   title="Exit Fullscreen (Esc)"
                 >
-                  <Minimize2 size={18} />
+                  
                 </button>
               </div>
             </div>
@@ -1734,7 +1703,7 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
                 aria-label="Previous Slide"
                 className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 p-3 sm:p-4 rounded-full bg-white/10 hover:bg-white/25 text-white backdrop-blur-md transition-all z-30"
               >
-                <ChevronLeft size={28} />
+                
               </button>
 
               <div 
@@ -1752,7 +1721,7 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
                 aria-label="Next Slide"
                 className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 p-3 sm:p-4 rounded-full bg-white/10 hover:bg-white/25 text-white backdrop-blur-md transition-all z-30"
               >
-                <ChevronRight size={28} />
+                
               </button>
             </div>
 
@@ -1764,7 +1733,7 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
                   disabled={zoomLevel <= 1}
                   className="p-1.5 rounded bg-white/10 text-white hover:bg-white/20 disabled:opacity-30"
                 >
-                  <ZoomOut size={16} />
+                  
                 </button>
                 <span className="text-xs font-mono text-white/80">
                   {Math.round(zoomLevel * 100)}%
@@ -1774,14 +1743,14 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
                   disabled={zoomLevel >= 1.8}
                   className="p-1.5 rounded bg-white/10 text-white hover:bg-white/20 disabled:opacity-30"
                 >
-                  <ZoomIn size={16} />
+                  
                 </button>
                 {zoomLevel > 1 && (
                   <button 
                     onClick={resetZoom}
                     className="p-1.5 rounded bg-white/10 text-white hover:bg-white/20 text-xs flex items-center gap-1"
                   >
-                    <RotateCcw size={12} />
+                    
                     <span>Reset</span>
                   </button>
                 )}
@@ -1794,7 +1763,7 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary text-white text-xs font-bold hover:shadow-lg transition-all"
                 >
-                  <Download size={14} />
+                  
                   <span>Download PDF</span>
                 </a>
               </div>

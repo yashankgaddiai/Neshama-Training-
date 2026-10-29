@@ -1,4 +1,3 @@
-import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -76,13 +75,6 @@ function FAQItem({ question, answer }: FAQItemProps) {
         className="w-full p-6 text-left flex justify-between items-center gap-4 hover:bg-surface-container/50 transition-colors"
       >
         <span className="font-bold text-primary text-base sm:text-lg">{question}</span>
-        <motion.div
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
-          className="flex-shrink-0"
-        >
-          <ChevronDown className="text-primary" size={20} />
-        </motion.div>
       </button>
       <AnimatePresence>
         {isOpen && (

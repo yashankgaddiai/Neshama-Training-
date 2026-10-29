@@ -1,4 +1,3 @@
-import { CheckCircle2 } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export default function Outcomes() {
@@ -56,7 +55,7 @@ export default function Outcomes() {
               key={i} 
               className="flex items-start gap-3 p-5 rounded-2xl bg-surface-container-low border border-outline-variant/30 hover:shadow-soft transition-all"
             >
-              <CheckCircle2 className="text-secondary flex-shrink-0 mt-0.5" size={18} />
+              
               <span className="text-xs sm:text-sm font-semibold text-primary leading-snug">{item}</span>
             </div>
           ))}

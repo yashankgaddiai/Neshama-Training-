@@ -1,4 +1,3 @@
-import { CheckCircle2 } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export default function Audience() {
@@ -22,14 +21,14 @@ export default function Audience() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <span className="text-primary font-bold uppercase text-[0.75rem] tracking-[0.2em] mb-4 block">
-            👥 Who Is This For?
+            Who Is This For?
           </span>
           <h2 className="text-4xl font-bold tracking-tight text-primary">Is this the right fit for you?</h2>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {audiences.map((audience, i) => (
             <div key={i} className="flex items-start gap-4 p-8 rounded-2xl bg-white shadow-soft">
-              <CheckCircle2 className="text-secondary mt-1 flex-shrink-0" size={20} />
+              
               <span className="text-lg font-bold text-primary leading-tight">{audience}</span>
             </div>
           ))}

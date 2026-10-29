@@ -1,4 +1,3 @@
-import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -55,7 +54,7 @@ export default function Navbar({ onEnroll }: { onEnroll?: () => void }) {
           className="lg:hidden text-primary p-2 focus:outline-none"
           aria-label="Toggle menu"
         >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          <span className="text-sm font-semibold">{mobileMenuOpen ? "Close" : "Menu"}</span>
         </button>
       </div>
 

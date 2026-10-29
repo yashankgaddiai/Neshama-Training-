@@ -1,5 +1,4 @@
 import { motion } from 'motion/react';
-import { Briefcase, CheckCircle2, ShieldCheck, MessageCircle, Terminal, Presentation } from 'lucide-react';
 
 export default function RolesAndInterviews() {
   const roles = [
@@ -31,7 +30,6 @@ export default function RolesAndInterviews() {
 
   const prepTracks = [
     {
-      icon: "🧪",
       title: "Technical Interviews",
       items: [
         "Python + JavaScript / React",
@@ -41,7 +39,6 @@ export default function RolesAndInterviews() {
       ]
     },
     {
-      icon: "🧠",
       title: "AI Engineering Discussion",
       items: [
         "Explain AI architecture + RAG",
@@ -51,7 +48,6 @@ export default function RolesAndInterviews() {
       ]
     },
     {
-      icon: "🎙️",
       title: "Mock Interviews",
       items: [
         "Technical mock interview",
@@ -61,7 +57,6 @@ export default function RolesAndInterviews() {
       ]
     },
     {
-      icon: "🏢",
       title: "Corporate Readiness",
       items: [
         "Professional communication",
@@ -103,14 +98,14 @@ export default function RolesAndInterviews() {
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2.5 rounded-xl bg-surface-container text-primary">
-                  <Briefcase size={20} className="text-secondary" />
+                  
                 </div>
                 <h3 className="text-lg font-bold text-primary">{role.title}</h3>
               </div>
               <ul className="space-y-2 mt-auto">
                 {role.skills.map((skill, j) => (
                   <li key={j} className="flex items-center gap-2 text-xs sm:text-sm text-on-surface-variant font-medium">
-                    <CheckCircle2 size={15} className="text-secondary shrink-0" />
+                    
                     <span>{skill}</span>
                   </li>
                 ))}
@@ -135,7 +130,6 @@ export default function RolesAndInterviews() {
               key={i} 
               className="p-6 rounded-3xl bg-white border border-outline-variant/30 shadow-soft flex flex-col"
             >
-              <div className="text-3xl mb-4">{track.icon}</div>
               <h3 className="text-lg font-bold text-primary mb-4">{track.title}</h3>
               <ul className="space-y-2.5 mt-auto">
                 {track.items.map((item, j) => (

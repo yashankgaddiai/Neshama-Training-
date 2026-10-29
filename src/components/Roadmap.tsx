@@ -1,5 +1,4 @@
 import { motion } from 'motion/react';
-import { Calendar, CheckCircle2 } from 'lucide-react';
 
 export default function Roadmap() {
   const months = [
@@ -67,7 +66,7 @@ export default function Roadmap() {
                 <span className="text-xs font-black uppercase tracking-wider text-secondary bg-secondary/10 px-3 py-1 rounded-full border border-secondary/20">
                   {item.month}
                 </span>
-                <Calendar size={18} className="text-primary/40" />
+                
               </div>
               <h3 className="text-xl font-bold text-primary mb-6">
                 {item.title}

@@ -1,5 +1,4 @@
 import { motion } from 'motion/react';
-import { CheckCircle2, GraduationCap, CreditCard, Phone, MessageSquare, ArrowRight } from 'lucide-react';
 
 export default function Fees({ onEnroll }: { onEnroll: () => void }) {
   const highlights = [
@@ -69,7 +68,7 @@ export default function Fees({ onEnroll }: { onEnroll: () => void }) {
           <div className="grid sm:grid-cols-2 gap-3.5 mb-10">
             {highlights.map((item, i) => (
               <div key={i} className="flex items-center gap-2.5 text-sm font-semibold text-primary">
-                <CheckCircle2 size={16} className="text-secondary shrink-0" />
+                
                 <span>{item}</span>
               </div>
             ))}
@@ -82,7 +81,7 @@ export default function Fees({ onEnroll }: { onEnroll: () => void }) {
               onClick={onEnroll}
               className="flex-1 bg-primary text-white py-4 rounded-full font-bold text-base hover:shadow-xl transition-all text-center"
             >
-              Apply Now →
+              Apply Now
             </motion.button>
             <motion.a 
               whileHover={{ scale: 1.02 }}
@@ -101,7 +100,7 @@ export default function Fees({ onEnroll }: { onEnroll: () => void }) {
         <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           <div className="p-6 rounded-2xl bg-white border border-outline-variant/30 shadow-soft flex flex-col">
             <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white mb-4">
-              <GraduationCap size={20} className="text-secondary" />
+              
             </div>
             <h4 className="text-base font-bold text-primary mb-2">Scholarships & Exclusive Discounts</h4>
             <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
@@ -111,7 +110,7 @@ export default function Fees({ onEnroll }: { onEnroll: () => void }) {
 
           <div className="p-6 rounded-2xl bg-white border border-outline-variant/30 shadow-soft flex flex-col">
             <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white mb-4">
-              <CreditCard size={20} className="text-secondary" />
+              
             </div>
             <h4 className="text-base font-bold text-primary mb-2">Easy EMI Options</h4>
             <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
@@ -121,15 +120,15 @@ export default function Fees({ onEnroll }: { onEnroll: () => void }) {
 
           <div className="p-6 rounded-2xl bg-white border border-outline-variant/30 shadow-soft flex flex-col">
             <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white mb-4">
-              <Phone size={20} className="text-secondary" />
+              
             </div>
             <h4 className="text-base font-bold text-primary mb-2">Plan your enrolment</h4>
             <div className="space-y-1.5 mt-auto">
               <a href="tel:+918143459888" className="text-xs sm:text-sm font-bold text-primary hover:text-secondary block">
-                📞 +91 81434 59888
+                +91 81434 59888
               </a>
               <a href="tel:+919550143619" className="text-xs sm:text-sm font-bold text-primary hover:text-secondary block">
-                📞 +91 95501 43619
+                +91 95501 43619
               </a>
             </div>
           </div>

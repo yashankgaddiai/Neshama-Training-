@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronDown, CheckCircle2, FolderGit2, Sparkles, BookOpen } from 'lucide-react';
 
 export default function Curriculum() {
   const [activeModule, setActiveModule] = useState(0);
@@ -357,13 +356,13 @@ export default function Curriculum() {
                 {modules[activeModule].sections.map((section, sIdx) => (
                   <div key={sIdx} className="p-6 rounded-2xl bg-white border border-outline-variant/30">
                     <h4 className="text-base font-bold text-primary mb-4 flex items-center gap-2">
-                      <BookOpen size={16} className="text-secondary" />
+                      
                       {section.heading}
                     </h4>
                     <ul className="space-y-2.5">
                       {section.items.map((item, iIdx) => (
                         <li key={iIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-on-surface-variant font-medium">
-                          <CheckCircle2 size={15} className="text-secondary mt-0.5 flex-shrink-0" />
+                          
                           <span>{item}</span>
                         </li>
                       ))}
@@ -375,7 +374,7 @@ export default function Curriculum() {
               {/* Project Deliverables */}
               <div className="p-6 rounded-2xl bg-primary text-white">
                 <span className="text-xs font-bold uppercase tracking-wider text-secondary block mb-2 flex items-center gap-1.5">
-                  <FolderGit2 size={16} /> Project Deliverables
+                   Project Deliverables
                 </span>
                 <div className="space-y-2">
                   {modules[activeModule].deliverables.map((del, dIdx) => (
@@ -409,7 +408,7 @@ export default function Curriculum() {
             onClick={handleBrochureClick}
             className="inline-flex items-center gap-2.5 bg-primary text-white px-8 py-4 rounded-full font-bold text-base sm:text-lg hover:shadow-xl transition-all"
           >
-            📂 Download Full Curriculum PDF
+            Download Full Curriculum PDF
           </motion.button>
         </motion.div>
       </div>

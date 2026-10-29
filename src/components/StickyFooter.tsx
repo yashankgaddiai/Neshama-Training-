@@ -1,7 +1,6 @@
 import { motion } from 'motion/react';
-import { Phone } from 'lucide-react';
 
-export default function StickyFooter({ onEnroll }: { onEnroll: () => void }) {
+export default function StickyFooter({ onEnroll, onEnrollNow }: { onEnroll: () => void; onEnrollNow: () => void }) {
   return (
     <motion.div 
       initial={{ y: 100 }}
@@ -23,7 +22,7 @@ export default function StickyFooter({ onEnroll }: { onEnroll: () => void }) {
             href="tel:+918143459888"
             className="border border-outline-variant/40 hover:border-primary text-primary px-4 py-2.5 rounded-full font-bold text-xs sm:text-sm transition-all flex items-center gap-1.5 whitespace-nowrap"
           >
-            <Phone size={14} className="text-secondary" />
+            
             <span>Call</span>
           </a>
           <motion.button 
@@ -33,6 +32,14 @@ export default function StickyFooter({ onEnroll }: { onEnroll: () => void }) {
             className="bg-primary text-white px-5 sm:px-7 py-2.5 rounded-full font-bold text-xs sm:text-sm hover:shadow-lg transition-all whitespace-nowrap"
           >
             Apply Now
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            onClick={onEnrollNow}
+            className="bg-secondary text-primary px-4 sm:px-7 py-2.5 rounded-full font-bold text-xs sm:text-sm hover:shadow-lg transition-all whitespace-nowrap"
+          >
+            Enroll Now
           </motion.button>
         </div>
       </div>

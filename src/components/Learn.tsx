@@ -1,15 +1,14 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Code, Users, MessageSquare, Award, CheckCircle2 } from 'lucide-react';
 
 export default function Learn() {
   const [activeStep, setActiveStep] = useState(0);
 
   const steps = [
-    { id: "01", label: "Skills", icon: <Code size={18} /> },
-    { id: "02", label: "Professional Readiness", icon: <Users size={18} /> },
-    { id: "03", label: "Communication", icon: <MessageSquare size={18} /> },
-    { id: "04", label: "Outcomes", icon: <Award size={18} /> },
+    { id: "01", label: "Skills" },
+    { id: "02", label: "Professional Readiness" },
+    { id: "03", label: "Communication" },
+    { id: "04", label: "Outcomes" },
   ];
 
   return (
@@ -73,9 +72,9 @@ export default function Learn() {
                   <span className="text-xs font-bold uppercase tracking-wider text-secondary mb-2">Foundation</span>
                   <h4 className="text-xl font-bold text-primary mb-4">Python & MERN</h4>
                   <ul className="space-y-2.5 text-sm text-on-surface-variant">
-                    <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-secondary" /> Python, OOP, APIs, Git</li>
-                    <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-secondary" /> React, Redux Toolkit</li>
-                    <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-secondary" /> Node, Express, MongoDB</li>
+                    <li className="flex items-center gap-2"> Python, OOP, APIs, Git</li>
+                    <li className="flex items-center gap-2"> React, Redux Toolkit</li>
+                    <li className="flex items-center gap-2"> Node, Express, MongoDB</li>
                   </ul>
                 </div>
 
@@ -83,9 +82,9 @@ export default function Learn() {
                   <span className="text-xs font-bold uppercase tracking-wider text-secondary mb-2">Live</span>
                   <h4 className="text-xl font-bold text-primary mb-4">LLM & RAG Engineering</h4>
                   <ul className="space-y-2.5 text-sm text-on-surface-variant">
-                    <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-secondary" /> Prompt engineering & LLM APIs</li>
-                    <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-secondary" /> Embeddings + vector DBs</li>
-                    <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-secondary" /> Advanced RAG & evaluation</li>
+                    <li className="flex items-center gap-2"> Prompt engineering & LLM APIs</li>
+                    <li className="flex items-center gap-2"> Embeddings + vector DBs</li>
+                    <li className="flex items-center gap-2"> Advanced RAG & evaluation</li>
                   </ul>
                 </div>
 
@@ -93,9 +92,9 @@ export default function Learn() {
                   <span className="text-xs font-bold uppercase tracking-wider text-secondary mb-2">Live</span>
                   <h4 className="text-xl font-bold text-primary mb-4">Agents & Production</h4>
                   <ul className="space-y-2.5 text-sm text-on-surface-variant">
-                    <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-secondary" /> LangChain, LangGraph, LlamaIndex</li>
-                    <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-secondary" /> Coding agents + MCP</li>
-                    <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-secondary" /> Docker, Vercel, AWS</li>
+                    <li className="flex items-center gap-2"> LangChain, LangGraph, LlamaIndex</li>
+                    <li className="flex items-center gap-2"> Coding agents + MCP</li>
+                    <li className="flex items-center gap-2"> Docker, Vercel, AWS</li>
                   </ul>
                 </div>
               </motion.div>
@@ -184,9 +183,9 @@ export default function Learn() {
                   <span className="text-xs font-bold uppercase tracking-wider text-secondary mb-2 block">Portfolio</span>
                   <h4 className="text-xl font-bold text-primary mb-4">Proof of work</h4>
                   <ul className="space-y-2.5 text-sm text-on-surface-variant">
-                    <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-secondary" /> Multiple GitHub repositories</li>
-                    <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-secondary" /> Portfolio-ready case studies</li>
-                    <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-secondary" /> Live-deployed AI application</li>
+                    <li className="flex items-center gap-2"> Multiple GitHub repositories</li>
+                    <li className="flex items-center gap-2"> Portfolio-ready case studies</li>
+                    <li className="flex items-center gap-2"> Live-deployed AI application</li>
                   </ul>
                 </div>
 
@@ -194,9 +193,9 @@ export default function Learn() {
                   <span className="text-xs font-bold uppercase tracking-wider text-secondary mb-2 block">Profile</span>
                   <h4 className="text-xl font-bold text-primary mb-4">Professional presence</h4>
                   <ul className="space-y-2.5 text-sm text-on-surface-variant">
-                    <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-secondary" /> LinkedIn developed from Week 1</li>
-                    <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-secondary" /> AI Engineer resume</li>
-                    <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-secondary" /> Certificate of completion</li>
+                    <li className="flex items-center gap-2"> LinkedIn developed from Week 1</li>
+                    <li className="flex items-center gap-2"> AI Engineer resume</li>
+                    <li className="flex items-center gap-2"> Certificate of completion</li>
                   </ul>
                 </div>
 
@@ -204,9 +203,9 @@ export default function Learn() {
                   <span className="text-xs font-bold uppercase tracking-wider text-secondary mb-2 block">Interviews</span>
                   <h4 className="text-xl font-bold text-primary mb-4">Ready to be hired</h4>
                   <ul className="space-y-2.5 text-sm text-on-surface-variant">
-                    <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-secondary" /> Mock interview experience</li>
-                    <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-secondary" /> Project defense practice</li>
-                    <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-secondary" /> Corporate readiness</li>
+                    <li className="flex items-center gap-2"> Mock interview experience</li>
+                    <li className="flex items-center gap-2"> Project defense practice</li>
+                    <li className="flex items-center gap-2"> Corporate readiness</li>
                   </ul>
                 </div>
               </motion.div>

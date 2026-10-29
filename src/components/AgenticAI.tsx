@@ -1,10 +1,8 @@
 import { motion } from 'motion/react';
-import { Cpu, Wrench, GitFork, Terminal, Network, Layers, CheckCircle2 } from 'lucide-react';
 
 export default function AgenticAI() {
   const pillars = [
     {
-      icon: <Cpu className="text-secondary" size={22} />,
       title: "Agent Architecture",
       items: [
         "Planning + reasoning loops",
@@ -14,7 +12,6 @@ export default function AgenticAI() {
       ]
     },
     {
-      icon: <Wrench className="text-secondary" size={22} />,
       title: "Tools & Actions",
       items: [
         "Function calling + APIs",
@@ -24,7 +21,6 @@ export default function AgenticAI() {
       ]
     },
     {
-      icon: <GitFork className="text-secondary" size={22} />,
       title: "Orchestration",
       items: [
         "LangChain + LangGraph",
@@ -34,7 +30,6 @@ export default function AgenticAI() {
       ]
     },
     {
-      icon: <Terminal className="text-secondary" size={22} />,
       title: "Coding Agents",
       items: [
         "Codex + Claude Code",
@@ -44,7 +39,6 @@ export default function AgenticAI() {
       ]
     },
     {
-      icon: <Network className="text-secondary" size={22} />,
       title: "MCP",
       items: [
         "Clients + servers",
@@ -54,7 +48,6 @@ export default function AgenticAI() {
       ]
     },
     {
-      icon: <Layers className="text-secondary" size={22} />,
       title: "Multi-Agent Systems",
       items: [
         "Supervisor + worker agents",
@@ -93,14 +86,11 @@ export default function AgenticAI() {
               key={i} 
               className="p-7 rounded-3xl bg-surface-container-low border border-outline-variant/30 hover:shadow-soft transition-all duration-300 flex flex-col"
             >
-              <div className="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center mb-5">
-                {item.icon}
-              </div>
               <h3 className="text-xl font-bold text-primary mb-4">{item.title}</h3>
               <ul className="space-y-2.5 mt-auto">
                 {item.items.map((line, j) => (
                   <li key={j} className="flex items-start gap-2.5 text-sm text-on-surface-variant font-medium">
-                    <CheckCircle2 size={16} className="text-secondary mt-0.5 flex-shrink-0" />
+                    
                     <span>{line}</span>
                   </li>
                 ))}

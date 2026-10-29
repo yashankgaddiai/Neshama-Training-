@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Sparkles, ArrowUpRight } from 'lucide-react';
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState<'all' | 'llm' | 'rag' | 'agents'>('all');
