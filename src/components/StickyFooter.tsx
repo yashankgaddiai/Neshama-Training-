@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 
-export default function StickyFooter({ onEnroll, onEnrollNow }: { onEnroll: () => void; onEnrollNow: () => void }) {
+export default function StickyFooter({ onEnroll }: { onEnroll: () => void }) {
   return (
     <motion.div 
       initial={{ y: 100 }}
@@ -33,14 +33,14 @@ export default function StickyFooter({ onEnroll, onEnrollNow }: { onEnroll: () =
           >
             Apply Now
           </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            onClick={onEnrollNow}
+          <motion.a
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              href="/enroll/"
             className="bg-secondary text-primary px-4 sm:px-7 py-2.5 rounded-full font-bold text-xs sm:text-sm hover:shadow-lg transition-all whitespace-nowrap"
           >
             Enroll Now
-          </motion.button>
+          </motion.a>
         </div>
       </div>
     </motion.div>

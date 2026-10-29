@@ -22,7 +22,6 @@ const FinalCTA = lazy(() => import('./components/FinalCTA'));
 const StickyFooter = lazy(() => import('./components/StickyFooter'));
 const Footer = lazy(() => import('./components/Footer'));
 const Modal = lazy(() => import('./components/Modals'));
-const EnrollmentModal = lazy(() => import('./components/EnrollmentModal'));
 
 export default function App() {
   const [isEnrollModalOpen, setIsEnrollModalOpen] = useState(false);
@@ -42,10 +41,7 @@ export default function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  const [isEnrollNowOpen, setIsEnrollNowOpen] = useState(false);
-
   const openEnroll = () => setIsEnrollModalOpen(true);
-  const openEnrollNow = () => setIsEnrollNowOpen(true);
   const openBrochure = () => {
     const el = document.getElementById("brochure");
     if (el) {
@@ -57,7 +53,7 @@ export default function App() {
     <div className="min-h-screen bg-surface selection:bg-secondary selection:text-primary pb-24 sm:pb-20">
       <TopBanner onEnroll={openEnroll} />
       <main>
-        <Hero onEnroll={openEnroll} onEnrollNow={openEnrollNow} onDownloadBrochure={openBrochure} />
+        <Hero onEnroll={openEnroll} onDownloadBrochure={openBrochure} />
         <Suspense fallback={<div className="h-96 flex items-center justify-center text-outline">Loading...</div>}>
           <VideoSection onEnroll={openEnroll} />
           <Countdown />
@@ -69,13 +65,12 @@ export default function App() {
           <Tools />
           <Instructor />
           <FAQ />
-          <FinalCTA onEnroll={openEnroll} onEnrollNow={openEnrollNow} />
+          <FinalCTA onEnroll={openEnroll} />
         </Suspense>
       </main>
       <Suspense fallback={null}>
         <Footer />
-        <StickyFooter onEnroll={openEnroll} onEnrollNow={openEnrollNow} />
-        <EnrollmentModal isOpen={isEnrollNowOpen} onClose={() => setIsEnrollNowOpen(false)} />
+        <StickyFooter onEnroll={openEnroll} />
         <Modal 
           isOpen={isEnrollModalOpen} 
           onClose={() => setIsEnrollModalOpen(false)} 

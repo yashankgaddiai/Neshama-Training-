@@ -3,11 +3,10 @@ import { motion } from 'motion/react';
 
 interface HeroProps {
   onEnroll: () => void;
-  onEnrollNow: () => void;
   onDownloadBrochure: () => void;
 }
 
-export default function Hero({ onEnroll, onEnrollNow, onDownloadBrochure }: HeroProps) {
+export default function Hero({ onEnroll, onDownloadBrochure }: HeroProps) {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -85,14 +84,14 @@ export default function Hero({ onEnroll, onEnrollNow, onDownloadBrochure }: Hero
             >
               Book a Free Counselling Call
             </motion.button>
-            <motion.button
+            <motion.a
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={onEnrollNow}
+              href="/enroll/"
               className="w-full sm:w-auto bg-secondary text-primary px-8 py-4 rounded-full font-bold text-base sm:text-lg flex items-center justify-center gap-2 hover:shadow-xl transition-all"
             >
               Enroll Now
-            </motion.button>
+            </motion.a>
             <motion.a 
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}

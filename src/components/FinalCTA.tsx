@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 
-export default function FinalCTA({ onEnroll, onEnrollNow }: { onEnroll: () => void; onEnrollNow: () => void }) {
+export default function FinalCTA({ onEnroll }: { onEnroll: () => void }) {
   return (
     <motion.section 
       initial={{ opacity: 0, y: 20 }}
@@ -30,14 +30,14 @@ export default function FinalCTA({ onEnroll, onEnrollNow }: { onEnroll: () => vo
             >
               Book Free Counselling
             </motion.button>
-            <motion.button
+            <motion.a
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              onClick={onEnrollNow}
-              className="w-full sm:w-auto bg-white text-primary px-8 py-4 rounded-full font-bold text-base hover:shadow-xl transition-all"
+              href="/enroll/"
+              className="w-full sm:w-auto text-center bg-white text-primary px-8 py-4 rounded-full font-bold text-base hover:shadow-xl transition-all"
             >
               Enroll Now
-            </motion.button>
+            </motion.a>
             <motion.a 
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
