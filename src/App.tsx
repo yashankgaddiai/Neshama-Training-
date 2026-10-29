@@ -17,7 +17,6 @@ const Curriculum = lazy(() => import('./components/Curriculum'));
 const Projects = lazy(() => import('./components/Projects'));
 const Tools = lazy(() => import('./components/Tools'));
 const Instructor = lazy(() => import('./components/Instructor'));
-const Testimonials = lazy(() => import('./components/Testimonials'));
 const FAQ = lazy(() => import('./components/FAQ'));
 const FinalCTA = lazy(() => import('./components/FinalCTA'));
 const StickyFooter = lazy(() => import('./components/StickyFooter'));
@@ -69,7 +68,6 @@ export default function App() {
           <Projects />
           <Tools />
           <Instructor />
-          <Testimonials />
           <FAQ />
           <FinalCTA onEnroll={openEnroll} onEnrollNow={openEnrollNow} />
         </Suspense>
