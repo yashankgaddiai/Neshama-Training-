@@ -229,9 +229,6 @@ function SlideRenderer({ slideIndex }: { slideIndex: number }) {
                 <p className="text-xs sm:text-sm font-semibold tracking-widest text-cyan-300 uppercase">TRAINING</p>
               </div>
             </div>
-            <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-cyan-400 via-blue-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
-              
-            </div>
           </div>
 
           {/* Hero Core */}
@@ -1605,9 +1602,6 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
         {/* Bottom CTA Card */}
         <div className="mt-8 p-6 rounded-2xl bg-surface border border-outline-variant/40 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-soft">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary flex-shrink-0">
-              
-            </div>
             <div>
               <h4 className="font-bold text-primary text-base">
                 Download the official PDF brochure

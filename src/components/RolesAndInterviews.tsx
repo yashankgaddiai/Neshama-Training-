@@ -97,9 +97,6 @@ export default function RolesAndInterviews() {
               className="p-7 rounded-3xl bg-white border border-outline-variant/30 shadow-soft flex flex-col"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 rounded-xl bg-surface-container text-primary">
-                  
-                </div>
                 <h3 className="text-lg font-bold text-primary">{role.title}</h3>
               </div>
               <ul className="space-y-2 mt-auto">

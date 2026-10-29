@@ -17,29 +17,58 @@ export default function Footer() {
             <p className="text-white/70 text-sm leading-relaxed">
               Building industry-ready AI engineers who take ownership and deliver real outcomes.
             </p>
-            <div className="flex items-center gap-3 pt-2">
-              <a 
-                href="https://wa.me/918143459888" 
-                target="_blank" 
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-2 text-sm font-semibold">
+              <a
+                href="https://wa.me/918143459888"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-secondary hover:text-primary transition-colors flex items-center justify-center text-white"
-                aria-label="WhatsApp"
+                className="text-white/80 hover:text-secondary transition-colors"
               >
-                
+                WhatsApp
               </a>
-              <a 
-                href="mailto:neshamatraining.info@gmail.com" 
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-secondary hover:text-primary transition-colors flex items-center justify-center text-white"
-                aria-label="Email"
+              <a
+                href="mailto:neshamatraining.info@gmail.com"
+                className="text-white/80 hover:text-secondary transition-colors"
               >
-                
+                Email
               </a>
-              <a 
-                href="tel:+918143459888" 
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-secondary hover:text-primary transition-colors flex items-center justify-center text-white"
-                aria-label="Phone"
+              <a
+                href="tel:+918143459888"
+                className="text-white/80 hover:text-secondary transition-colors"
               >
-                
+                Call
+              </a>
+              <a
+                href="https://www.facebook.com/share/1DemBKja8s/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-secondary transition-colors"
+              >
+                Facebook
+              </a>
+              <a
+                href="https://www.youtube.com/@NeshamaTraining"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-secondary transition-colors"
+              >
+                YouTube
+              </a>
+              <a
+                href="https://www.instagram.com/neshama.training"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-secondary transition-colors"
+              >
+                Instagram
+              </a>
+              <a
+                href="https://www.linkedin.com/company/neshamatraining/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-secondary transition-colors"
+              >
+                LinkedIn
               </a>
             </div>
           </div>

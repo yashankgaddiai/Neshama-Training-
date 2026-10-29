@@ -99,9 +99,6 @@ export default function Fees({ onEnroll }: { onEnroll: () => void }) {
         {/* Scholarships & EMI & Counsellor details */}
         <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           <div className="p-6 rounded-2xl bg-white border border-outline-variant/30 shadow-soft flex flex-col">
-            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white mb-4">
-              
-            </div>
             <h4 className="text-base font-bold text-primary mb-2">Scholarships & Exclusive Discounts</h4>
             <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
               Explore available scholarships or exclusive discounts. Speak with our counsellor to learn more about eligibility and current offers.
@@ -109,9 +106,6 @@ export default function Fees({ onEnroll }: { onEnroll: () => void }) {
           </div>
 
           <div className="p-6 rounded-2xl bg-white border border-outline-variant/30 shadow-soft flex flex-col">
-            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white mb-4">
-              
-            </div>
             <h4 className="text-base font-bold text-primary mb-2">Easy EMI Options</h4>
             <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
               Flexible payment options are available to make high-impact AI upskilling accessible.
@@ -119,9 +113,6 @@ export default function Fees({ onEnroll }: { onEnroll: () => void }) {
           </div>
 
           <div className="p-6 rounded-2xl bg-white border border-outline-variant/30 shadow-soft flex flex-col">
-            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white mb-4">
-              
-            </div>
             <h4 className="text-base font-bold text-primary mb-2">Plan your enrolment</h4>
             <div className="space-y-1.5 mt-auto">
               <a href="tel:+918143459888" className="text-xs sm:text-sm font-bold text-primary hover:text-secondary block">
