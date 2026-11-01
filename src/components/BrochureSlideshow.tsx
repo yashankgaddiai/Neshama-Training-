@@ -142,6 +142,11 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
     setZoomLevel(1);
   };
 
+  const scrollThumbs = (dir: 1 | -1) => {
+    const strip = thumbnailsRef.current;
+    if (strip) strip.scrollBy({ left: dir * strip.clientWidth * 0.8, behavior: 'smooth' });
+  };
+
   const zoomIn = () => setZoomLevel((z) => Math.min(MAX_ZOOM, Number((z + 0.25).toFixed(2))));
   const zoomOut = () => setZoomLevel((z) => Math.max(MIN_ZOOM, Number((z - 0.25).toFixed(2))));
   const resetZoom = () => setZoomLevel(1);
@@ -314,47 +319,79 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
         </div>
 
         {/* Thumbnail Strip */}
-        <div className="mt-6">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-bold text-on-surface-variant">
-              All {totalSlides} brochure pages (select any page to jump)
-            </span>
-            <span className="hidden sm:inline text-xs font-medium text-on-surface-variant">
-              Use the arrow keys to navigate
-            </span>
+        <div className="mt-8">
+          <div className="flex items-end justify-between gap-4 mb-3">
+            <div>
+              <h4 className="text-sm sm:text-base font-bold text-primary">Browse all pages</h4>
+              <p className="text-xs text-on-surface-variant">
+                {totalSlides} pages · select a page to open it
+                <span className="hidden sm:inline"> · arrow keys also work</span>
+              </p>
+            </div>
+            <div className="hidden sm:flex items-center gap-2">
+              <button
+                onClick={() => scrollThumbs(-1)}
+                className="px-3.5 py-1.5 rounded-full bg-white border border-outline-variant/50 text-primary text-xs font-bold hover:border-primary transition-colors"
+              >
+                Back
+              </button>
+              <button
+                onClick={() => scrollThumbs(1)}
+                className="px-3.5 py-1.5 rounded-full bg-white border border-outline-variant/50 text-primary text-xs font-bold hover:border-primary transition-colors"
+              >
+                More
+              </button>
+            </div>
           </div>
 
-          <div ref={thumbnailsRef} className="flex gap-2 sm:gap-3 overflow-x-auto pb-3 pt-1">
-            {SLIDES.map((slide, index) => {
-              const isActive = index === currentSlide;
-              return (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`flex-shrink-0 rounded-xl p-1.5 text-left transition-all duration-200 border-2 w-36 sm:w-44 ${
-                    isActive
-                      ? 'bg-primary border-primary ring-2 ring-primary/30'
-                      : 'bg-surface border-outline-variant/40 hover:border-primary/50'
-                  }`}
-                  aria-label={`Go to page ${index + 1}: ${slide.title}`}
-                >
-                  <img
-                    src={thumbSrc(index)}
-                    alt=""
-                    loading="lazy"
-                    className="w-full aspect-[1600/899] object-cover rounded-lg bg-white"
-                  />
-                  <div className="flex items-center gap-1.5 mt-1.5 px-0.5">
-                    <span className={`text-[10px] font-mono font-black ${isActive ? 'text-white/80' : 'text-blue-700'}`}>
-                      {pageNum(index)}
-                    </span>
-                    <span className={`text-[11px] font-bold truncate ${isActive ? 'text-white' : 'text-primary'}`}>
+          <div className="relative">
+            {/* Edge fades hint that the strip scrolls */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-4 bg-gradient-to-r from-surface-container-low to-transparent z-10" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-4 bg-gradient-to-l from-surface-container-low to-transparent z-10" />
+
+            <div
+              ref={thumbnailsRef}
+              className="no-scrollbar flex gap-3 sm:gap-4 overflow-x-auto snap-x snap-proximity px-4 py-2"
+              style={{ scrollbarWidth: 'none' }}
+            >
+              {SLIDES.map((slide, index) => {
+                const isActive = index === currentSlide;
+                return (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    aria-current={isActive ? 'true' : undefined}
+                    aria-label={`Go to page ${index + 1}: ${slide.title}`}
+                    className="group shrink-0 snap-start w-40 sm:w-48 text-left focus:outline-none"
+                  >
+                    <div
+                      className={`relative rounded-[12px] overflow-hidden bg-white border-2 transition-all duration-200 ${
+                        isActive
+                          ? 'border-primary ring-4 ring-primary/15 shadow-md'
+                          : 'border-transparent shadow-sm group-hover:border-primary/40 group-hover:shadow-md group-focus-visible:border-primary'
+                      }`}
+                    >
+                      <img
+                        src={thumbSrc(index)}
+                        alt=""
+                        loading="lazy"
+                        className={`w-full aspect-[1600/899] object-cover transition-opacity duration-200 ${
+                          isActive ? '' : 'opacity-80 group-hover:opacity-100'
+                        }`}
+                      />
+                    </div>
+                    <p
+                      className={`mt-2 px-0.5 text-xs leading-snug line-clamp-2 min-h-[2rem] transition-colors ${
+                        isActive ? 'font-bold text-primary' : 'font-semibold text-on-surface-variant group-hover:text-primary'
+                      }`}
+                    >
+                      <span className={`mr-1.5 tabular-nums ${isActive ? 'text-primary' : 'text-outline'}`}>{pageNum(index)}</span>
                       {slide.title}
-                    </span>
-                  </div>
-                </button>
-              );
-            })}
+                    </p>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
 
