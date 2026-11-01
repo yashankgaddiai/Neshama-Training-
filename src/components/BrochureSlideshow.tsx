@@ -1298,12 +1298,16 @@ export default function BrochureSlideshow({ onEnroll }: BrochureSlideshowProps) 
   // Scroll active thumbnail into view
   useEffect(() => {
     if (thumbnailsRef.current) {
-      const activeThumb = thumbnailsRef.current.children[currentSlide] as HTMLElement;
+      // Scroll only the thumbnail strip. scrollIntoView() would also scroll the whole
+      // page down to the slideshow on load and on every autoplay slide change.
+      const strip = thumbnailsRef.current;
+      const activeThumb = strip.children[currentSlide] as HTMLElement;
       if (activeThumb) {
-        activeThumb.scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
-          inline: 'center'
+        const offset =
+          activeThumb.getBoundingClientRect().left - strip.getBoundingClientRect().left;
+        strip.scrollTo({
+          left: strip.scrollLeft + offset - strip.clientWidth / 2 + activeThumb.clientWidth / 2,
+          behavior: 'smooth'
         });
       }
     }
