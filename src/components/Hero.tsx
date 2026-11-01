@@ -76,14 +76,16 @@ export default function Hero({ onEnroll, onDownloadBrochure }: HeroProps) {
           </div>
 
           <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 w-full sm:w-auto">
-            <motion.button 
+            <motion.a
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={onEnroll}
+              href="https://cal.com/neshama-training-vjgqp7/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-full font-bold text-base sm:text-lg flex items-center justify-center gap-2 hover:shadow-xl transition-all"
             >
               Book a Free Counselling Call
-            </motion.button>
+            </motion.a>
             <motion.a
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}

@@ -10,12 +10,14 @@ export default function TopBanner({ onEnroll }: { onEnroll: () => void }) {
         <span className="hidden sm:inline opacity-40">•</span>
         <span className="text-secondary font-semibold">Save ₹45,000 · Scholarships available</span>
         <span className="hidden sm:inline opacity-40">•</span>
-        <button 
-          onClick={onEnroll}
+        <a
+          href="https://cal.com/neshama-training-vjgqp7/30min"
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-white hover:text-secondary underline underline-offset-4 font-bold flex items-center gap-1 transition-colors"
         >
-          Book a free counselling call
-        </button>
+          Book a Free Counselling Call
+        </a>
       </div>
     </div>
   );

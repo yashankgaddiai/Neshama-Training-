@@ -30,7 +30,7 @@ export default function Footer() {
                 href="mailto:neshamatraining.info@gmail.com"
                 className="text-white/80 hover:text-secondary transition-colors"
               >
-                Email
+                Gmail
               </a>
               <a
                 href="tel:+918143459888"

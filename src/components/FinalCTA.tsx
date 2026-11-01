@@ -22,14 +22,16 @@ export default function FinalCTA({ onEnroll }: { onEnroll: () => void }) {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto mb-10">
-            <motion.button 
+            <motion.a
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              onClick={onEnroll}
-              className="w-full sm:w-auto bg-secondary text-primary px-8 py-4 rounded-full font-bold text-base hover:shadow-xl transition-all"
+              href="https://cal.com/neshama-training-vjgqp7/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto text-center bg-secondary text-primary px-8 py-4 rounded-full font-bold text-base hover:shadow-xl transition-all"
             >
-              Book Free Counselling
-            </motion.button>
+              Book a Free Counselling Call
+            </motion.a>
             <motion.a
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
