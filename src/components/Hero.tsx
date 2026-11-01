@@ -1,4 +1,4 @@
-import { useState, FormEvent } from 'react';
+import { useState, useRef, FormEvent } from 'react';
 import { motion } from 'motion/react';
 
 interface HeroProps {
@@ -13,9 +13,12 @@ export default function Hero({ onEnroll, onDownloadBrochure }: HeroProps) {
     status: 'Student'
   });
   const [submitted, setSubmitted] = useState(false);
+  const sendingRef = useRef(false);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    // Ignore repeat submits (double click, Enter + click) so only one chat is opened
+    if (sendingRef.current) return;
     if (!formData.name || !formData.phone) {
       onEnroll();
       return;
@@ -23,8 +26,13 @@ export default function Hero({ onEnroll, onDownloadBrochure }: HeroProps) {
     const message = encodeURIComponent(
       `Hi, I'd like to find my batch for Full-Stack AI Engineering.\nName: ${formData.name}\nPhone: ${formData.phone}\nStatus: ${formData.status}`
     );
-    window.open(`https://wa.me/918143459888?text=${message}`, '_blank');
+    sendingRef.current = true;
+    window.open(`https://wa.me/918143459888?text=${message}`, '_blank', 'noopener,noreferrer');
     setSubmitted(true);
+    setTimeout(() => {
+      sendingRef.current = false;
+      setSubmitted(false);
+    }, 8000);
   };
 
   const navAnchors = [
@@ -175,7 +183,8 @@ export default function Hero({ onEnroll, onDownloadBrochure }: HeroProps) {
             <div className="sm:col-span-3 pt-2">
               <button 
                 type="submit"
-                className="w-full bg-primary text-white py-3.5 rounded-xl font-bold text-sm sm:text-base hover:opacity-95 transition-all flex items-center justify-center gap-2 shadow-sm"
+                disabled={submitted}
+                className="w-full bg-primary text-white py-3.5 rounded-xl font-bold text-sm sm:text-base hover:opacity-95 disabled:opacity-60 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2 shadow-sm"
               >
                 Request a callback
               </button>

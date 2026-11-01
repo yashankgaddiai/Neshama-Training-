@@ -21,6 +21,7 @@ const FAQ = lazy(() => import('./components/FAQ'));
 const FinalCTA = lazy(() => import('./components/FinalCTA'));
 const StickyFooter = lazy(() => import('./components/StickyFooter'));
 const Footer = lazy(() => import('./components/Footer'));
+const WhatsAppButton = lazy(() => import('./components/WhatsAppButton'));
 const Modal = lazy(() => import('./components/Modals'));
 
 export default function App() {
@@ -71,6 +72,7 @@ export default function App() {
       <Suspense fallback={null}>
         <Footer />
         <StickyFooter onEnroll={openEnroll} />
+        <WhatsAppButton />
         <Modal 
           isOpen={isEnrollModalOpen} 
           onClose={() => setIsEnrollModalOpen(false)} 
