@@ -74,7 +74,7 @@ export default function Modal({ isOpen, onClose, title }: ModalProps) {
     <div
       aria-hidden={!isOpen}
       inert={!isOpen}
-      className={`fixed inset-0 z-[100] items-center justify-center p-4 sm:p-8 select-none ${
+      className={`fixed inset-0 z-[100] items-center justify-center p-2 sm:p-8 select-none ${
         isOpen ? "flex" : "hidden"
       }`}
     >
@@ -89,17 +89,18 @@ export default function Modal({ isOpen, onClose, title }: ModalProps) {
         role="dialog"
         aria-modal="true"
         aria-label={title}
-        className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden"
+        className="relative w-full max-w-2xl max-h-[94vh] overflow-y-auto bg-white rounded-3xl shadow-2xl"
       >
-        <div className="p-4 sm:p-8">
-          <div className="flex justify-between items-center mb-4 sm:mb-6">
-            <h3 className="text-xl sm:text-2xl font-bold text-primary">{title}</h3>
-            <button onClick={onClose} className="text-outline hover:text-primary transition-colors text-sm font-semibold">
+        <div className="px-2 py-5 sm:p-10">
+          <div className="flex justify-between items-center mb-4 sm:mb-6 px-3 sm:px-0">
+            <h3 className="text-2xl sm:text-3xl font-bold text-primary">{title}</h3>
+            <button onClick={onClose} className="text-outline hover:text-primary transition-colors text-base font-semibold">
               Close
             </button>
           </div>
 
-          <div className="w-full h-[550px] relative">
+          {/* No fixed height: the GHL embed script resizes the iframe to fit the whole form */}
+          <div className="w-full min-h-[400px] relative">
             {isLoading && (
               <div className="absolute inset-0 flex flex-col items-center justify-center bg-white z-10">
                 <p className="text-sm font-medium text-outline">Loading secure form...</p>
@@ -109,7 +110,7 @@ export default function Modal({ isOpen, onClose, title }: ModalProps) {
               src={FORM_URL}
               style={{
                 width: "100%",
-                height: "100%",
+                height: "640px",
                 border: "none",
                 borderRadius: "12px",
               }}
