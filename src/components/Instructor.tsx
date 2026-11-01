@@ -28,8 +28,6 @@ export default function Instructor() {
     {
       initials: "VP",
       image: "/instructors/prithvi.jpg",
-      // current photo is a small figure on black, so it is zoomed in on the face
-      imageClass: "scale-[1.55] origin-[50%_26%]",
       badge: "Founder & CTO",
       name: "Venkata Prithvi Krishna Palle",
       role: "Founder & CTO @ Vaulth AI",
