@@ -67,10 +67,15 @@ export default function Modal({ isOpen, onClose, title }: ModalProps) {
   if (!shouldLoad && !isOpen) return null;
 
   return (
+    // Closed state must use display:none. The GHL embed script puts
+    // `visibility: visible; pointer-events: auto` inline on its iframe, which
+    // overrides an invisible/pointer-events-none parent and leaves an invisible
+    // iframe over the page that swallows clicks. A display:none iframe still loads.
     <div
       aria-hidden={!isOpen}
-      className={`fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8 transition-opacity duration-200 select-none ${
-        isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+      inert={!isOpen}
+      className={`fixed inset-0 z-[100] items-center justify-center p-4 sm:p-8 select-none ${
+        isOpen ? "flex" : "hidden"
       }`}
     >
       {/* Ignore the backdrop for a moment after opening so a quick second tap on the button does not close the form */}
@@ -84,9 +89,7 @@ export default function Modal({ isOpen, onClose, title }: ModalProps) {
         role="dialog"
         aria-modal="true"
         aria-label={title}
-        className={`relative w-full max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden transition-transform duration-200 ${
-          isOpen ? "scale-100 translate-y-0" : "scale-95 translate-y-4"
-        }`}
+        className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden"
       >
         <div className="p-4 sm:p-8">
           <div className="flex justify-between items-center mb-4 sm:mb-6">
