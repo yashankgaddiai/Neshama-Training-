@@ -6,6 +6,7 @@
 import { useState, lazy, Suspense, useEffect } from 'react';
 import TopBanner from './components/TopBanner';
 import Hero from './components/Hero';
+import Modal from './components/Modals';
 
 // Lazy load components below the fold
 const VideoSection = lazy(() => import('./components/VideoSection'));
@@ -22,7 +23,6 @@ const FinalCTA = lazy(() => import('./components/FinalCTA'));
 const StickyFooter = lazy(() => import('./components/StickyFooter'));
 const Footer = lazy(() => import('./components/Footer'));
 const WhatsAppButton = lazy(() => import('./components/WhatsAppButton'));
-const Modal = lazy(() => import('./components/Modals'));
 
 export default function App() {
   const [isEnrollModalOpen, setIsEnrollModalOpen] = useState(false);
@@ -51,7 +51,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-surface selection:bg-secondary selection:text-primary pb-24 sm:pb-20">
+    <div className="min-h-screen bg-surface selection:bg-primary/20 selection:text-primary pb-24 sm:pb-20">
       <TopBanner onEnroll={openEnroll} />
       <main>
         <Hero onEnroll={openEnroll} onDownloadBrochure={openBrochure} />

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface ModalProps {
   isOpen: boolean;
@@ -24,6 +24,7 @@ export default function Modal({ isOpen, onClose, title }: ModalProps) {
   // mounted (hidden) so opening the modal shows an already-loaded form.
   const [shouldLoad, setShouldLoad] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const openedAtRef = useRef(0);
 
   useEffect(() => {
     const start = () => {
@@ -48,6 +49,7 @@ export default function Modal({ isOpen, onClose, title }: ModalProps) {
   // If the user opens the modal before the idle preload has fired, load right away.
   useEffect(() => {
     if (isOpen) {
+      openedAtRef.current = Date.now();
       setShouldLoad(true);
       loadFormScript();
     }
@@ -67,11 +69,17 @@ export default function Modal({ isOpen, onClose, title }: ModalProps) {
   return (
     <div
       aria-hidden={!isOpen}
-      className={`fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8 transition-opacity duration-200 ${
+      className={`fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8 transition-opacity duration-200 select-none ${
         isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
       }`}
     >
-      <div onClick={onClose} className="absolute inset-0 bg-primary/40 backdrop-blur-sm" />
+      {/* Ignore the backdrop for a moment after opening so a quick second tap on the button does not close the form */}
+      <div
+        onClick={() => {
+          if (Date.now() - openedAtRef.current > 600) onClose();
+        }}
+        className="absolute inset-0 bg-primary/40 backdrop-blur-sm"
+      />
       <div
         role="dialog"
         aria-modal="true"
