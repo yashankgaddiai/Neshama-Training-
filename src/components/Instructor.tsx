@@ -43,11 +43,11 @@ export default function Instructor() {
       tags: ["Product Management", "Software Delivery", "Industry Experience"]
     },
     {
-      initials: "VM",
+      initials: "MV",
       image: "/instructors/vamshi.jpg",
       badge: "DataOps & Python",
-      name: "Vamshi Maraboina",
-      role: "Senior Analyst · DataOps Automation Engineer · Python Developer",
+      name: "Maraboina Vamshi",
+      role: "Principal Software Engineer",
       tags: ["Python", "DataOps", "Automation"]
     }
   ];
