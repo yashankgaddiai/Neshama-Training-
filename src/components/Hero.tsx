@@ -122,9 +122,8 @@ export default function Hero({ onEnroll, onDownloadBrochure }: HeroProps) {
             <motion.a
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              href="https://drive.google.com/uc?export=view&id=1u2bwNXjPORDy1XJcWH07nEoGmvp-8I88"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/brochure/Neshama-AI-Engineering-Brochure.pdf"
+              download
               className="w-full sm:w-auto border border-outline/30 px-6 py-4 rounded-full font-bold text-base text-primary hover:bg-surface-container-low transition-all flex items-center justify-center gap-2"
             >
               Download PDF

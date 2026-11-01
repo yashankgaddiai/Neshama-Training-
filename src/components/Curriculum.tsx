@@ -282,7 +282,7 @@ export default function Curriculum() {
   ];
 
   const handleBrochureClick = () => {
-    window.open("https://drive.google.com/uc?export=view&id=1u2bwNXjPORDy1XJcWH07nEoGmvp-8I88", "_blank");
+    window.open("/brochure/Neshama-AI-Engineering-Brochure.pdf", "_blank");
   };
 
   return (

@@ -37,9 +37,9 @@ export default function Instructor() {
     {
       initials: "M",
       image: "/instructors/murthy.jpg",
-      badge: "30+ Years",
+      badge: "25+ Years",
       name: "Murthy",
-      role: "Product Manager · 30+ years of experience in software",
+      role: "Product Manager · 25+ years of experience in software",
       tags: ["Product Management", "Software Delivery", "Industry Experience"]
     },
     {
