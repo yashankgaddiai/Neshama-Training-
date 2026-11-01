@@ -8,7 +8,7 @@ export default function StickyFooter({ onEnroll }: { onEnroll: () => void }) {
       className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-xl border-t border-outline-variant/40 py-3 sm:py-3.5 px-4 sm:px-8 z-50 shadow-[0_-10px_30px_rgba(0,0,0,0.06)]"
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-3 sm:gap-4">
-        <div>
+        <div className="hidden sm:block">
           <h4 className="font-bold text-primary text-sm sm:text-base leading-tight">
             Full-Stack AI Engineering · Python + MERN + GenAI
           </h4>
@@ -17,7 +17,7 @@ export default function StickyFooter({ onEnroll }: { onEnroll: () => void }) {
           </p>
         </div>
         
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center justify-center sm:justify-end gap-2 sm:gap-3 w-full sm:w-auto">
           <a
             href="tel:+918143459888"
             className="border border-outline-variant/40 hover:border-primary text-primary px-4 py-2.5 rounded-full font-bold text-xs sm:text-sm transition-all flex items-center gap-1.5 whitespace-nowrap"
@@ -31,7 +31,7 @@ export default function StickyFooter({ onEnroll }: { onEnroll: () => void }) {
             onClick={onEnroll}
             className="bg-primary text-white px-5 sm:px-7 py-2.5 rounded-full font-bold text-xs sm:text-sm hover:shadow-lg transition-all whitespace-nowrap"
           >
-            Apply Now
+            Enroll Now
           </motion.button>
           <motion.a
               whileHover={{ scale: 1.03 }}
@@ -39,7 +39,7 @@ export default function StickyFooter({ onEnroll }: { onEnroll: () => void }) {
               href="/enroll"
             className="bg-secondary text-primary px-4 sm:px-7 py-2.5 rounded-full font-bold text-xs sm:text-sm hover:shadow-lg transition-all whitespace-nowrap"
           >
-            Enroll Now
+            Secure Your Seat
           </motion.a>
         </div>
       </div>

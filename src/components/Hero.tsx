@@ -94,13 +94,21 @@ export default function Hero({ onEnroll, onDownloadBrochure }: HeroProps) {
             >
               Book a Free Counselling Call
             </motion.a>
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={onEnroll}
+              className="w-full sm:w-auto bg-secondary text-primary px-8 py-4 rounded-full font-bold text-base sm:text-lg flex items-center justify-center gap-2 hover:shadow-xl transition-all"
+            >
+              Enroll Now
+            </motion.button>
             <motion.a
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               href="/enroll"
-              className="w-full sm:w-auto bg-secondary text-primary px-8 py-4 rounded-full font-bold text-base sm:text-lg flex items-center justify-center gap-2 hover:shadow-xl transition-all"
+              className="w-full sm:w-auto border-2 border-primary text-primary px-8 py-4 rounded-full font-bold text-base sm:text-lg flex items-center justify-center gap-2 hover:bg-primary hover:text-white transition-all"
             >
-              Enroll Now
+              Secure Your Seat
             </motion.a>
             <motion.a 
               whileHover={{ scale: 1.02 }}

@@ -21,7 +21,7 @@ export default function FinalCTA({ onEnroll }: { onEnroll: () => void }) {
             Talk to a counsellor about the next batch, scholarships and EMI options. Call +91 81434 59888 or +91 95501 43619.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto mb-10">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap items-center justify-center gap-4 max-w-3xl mx-auto mb-10">
             <motion.a
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
@@ -32,13 +32,21 @@ export default function FinalCTA({ onEnroll }: { onEnroll: () => void }) {
             >
               Book a Free Counselling Call
             </motion.a>
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={onEnroll}
+              className="w-full sm:w-auto text-center bg-white text-primary px-8 py-4 rounded-full font-bold text-base hover:shadow-xl transition-all"
+            >
+              Enroll Now
+            </motion.button>
             <motion.a
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               href="/enroll"
-              className="w-full sm:w-auto text-center bg-white text-primary px-8 py-4 rounded-full font-bold text-base hover:shadow-xl transition-all"
+              className="w-full sm:w-auto text-center border-2 border-white text-white px-8 py-4 rounded-full font-bold text-base hover:bg-white hover:text-primary transition-all"
             >
-              Enroll Now
+              Secure Your Seat
             </motion.a>
             <motion.a 
               whileHover={{ scale: 1.03 }}
