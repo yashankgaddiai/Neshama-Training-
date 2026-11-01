@@ -111,14 +111,16 @@ export default function Hero({ onEnroll, onDownloadBrochure }: HeroProps) {
               
               View Brochure Slideshow
             </motion.a>
-            <motion.button 
+            <motion.a
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={onDownloadBrochure}
+              href="https://drive.google.com/uc?export=view&id=1u2bwNXjPORDy1XJcWH07nEoGmvp-8I88"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto border border-outline/30 px-6 py-4 rounded-full font-bold text-base text-primary hover:bg-surface-container-low transition-all flex items-center justify-center gap-2"
             >
               Download PDF
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
 

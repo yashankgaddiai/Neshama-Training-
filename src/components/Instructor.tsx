@@ -1,10 +1,35 @@
+import { useState } from 'react';
 import { motion } from 'motion/react';
+
+// Large 4:5 photo box. Falls back to the initials block if the image is missing.
+function InstructorPhoto({ image, name, initials, imageClass }: { image?: string; name: string; initials: string; imageClass?: string }) {
+  const [failed, setFailed] = useState(false);
+  if (image && !failed) {
+    return (
+      <div className="w-full aspect-[4/5] rounded-2xl overflow-hidden bg-surface-container mb-6 border border-outline-variant/30 shadow-md">
+        <img
+          src={image}
+          alt={name}
+          onError={() => setFailed(true)}
+          className={`w-full h-full object-cover object-top ${imageClass ?? ''}`}
+        />
+      </div>
+    );
+  }
+  return (
+    <div className="w-full aspect-[4/5] rounded-2xl bg-primary text-white flex items-center justify-center text-6xl font-black shadow-sm mb-6">
+      {initials}
+    </div>
+  );
+}
 
 export default function Instructor() {
   const instructors = [
     {
       initials: "VP",
       image: "/instructors/prithvi.jpg",
+      // current photo is a small figure on black, so it is zoomed in on the face
+      imageClass: "scale-[1.55] origin-[50%_26%]",
       badge: "Founder & CTO",
       name: "Venkata Prithvi Krishna Palle",
       role: "Founder & CTO @ Vaulth AI",
@@ -13,6 +38,7 @@ export default function Instructor() {
     },
     {
       initials: "M",
+      image: "/instructors/murthy.jpg",
       badge: "30+ Years",
       name: "Murthy",
       role: "Product Manager · 30+ years of experience in software",
@@ -20,6 +46,7 @@ export default function Instructor() {
     },
     {
       initials: "VM",
+      image: "/instructors/vamshi.jpg",
       badge: "DataOps & Python",
       name: "Vamshi Maraboina",
       role: "Senior Analyst · DataOps Automation Engineer · Python Developer",
@@ -55,24 +82,10 @@ export default function Instructor() {
               key={i} 
               className="p-8 rounded-3xl bg-white border border-outline-variant/30 shadow-soft hover:shadow-md transition-shadow flex flex-col group"
             >
-              <div className="flex items-center justify-between mb-6">
-                {inst.image ? (
-                  <div className="relative">
-                    <img 
-                      src={inst.image} 
-                      alt={inst.name} 
-                      className="w-18 h-18 sm:w-20 sm:h-20 rounded-2xl object-cover object-top border-2 border-primary/20 shadow-md group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                ) : (
-                  <div className="w-18 h-18 sm:w-20 sm:h-20 rounded-2xl bg-primary text-white flex items-center justify-center text-xl font-black shadow-sm">
-                    {inst.initials}
-                  </div>
-                )}
-                <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200/70 shadow-2xs">
-                  {inst.badge}
-                </span>
-              </div>
+              <InstructorPhoto image={inst.image} name={inst.name} initials={inst.initials} imageClass={(inst as { imageClass?: string }).imageClass} />
+              <span className="self-start text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-200/70 shadow-2xs mb-4">
+                {inst.badge}
+              </span>
 
               <h3 className="text-xl font-bold text-primary mb-2">
                 {inst.name}
