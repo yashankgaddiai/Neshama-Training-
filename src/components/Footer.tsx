@@ -27,7 +27,9 @@ export default function Footer() {
                 WhatsApp
               </a>
               <a
-                href="mailto:neshamatraining.info@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=neshamatraining.info@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white/80 hover:text-secondary transition-colors"
               >
                 Gmail
@@ -109,7 +111,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2.5">
                 
-                <a href="mailto:neshamatraining.info@gmail.com" className="hover:text-secondary transition-colors">neshamatraining.info@gmail.com</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=neshamatraining.info@gmail.com" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">neshamatraining.info@gmail.com</a>
               </li>
               <li className="flex items-center gap-2.5">
                 
